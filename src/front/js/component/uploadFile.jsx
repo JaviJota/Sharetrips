@@ -24,7 +24,6 @@ const UploadFile = () => {
     const data = await res.json();
     if (res.ok) {
       actions.addImg(data.url);
-      console.log(store.newItineraryData);
     }
   };
   const handleFile = (e) => {

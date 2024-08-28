@@ -24,7 +24,7 @@ export const Navbarsearch = () => {
           <Searchbar />
         </div>
         <div className="ml-auto d-flex align-items-center">
-          {getToken ? (
+          {localStorage.getItem('token') ? (
             <BlueButton
               icon={<i className="bi bi-person-circle"></i>}
               buttonName={"Mi perfil"}
