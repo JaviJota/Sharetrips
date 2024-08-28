@@ -39,30 +39,31 @@ export const InputRutas = () => {
       autocomplete.addListener("place_changed", () => {
         const place = autocomplete.getPlace();
         setCityValue(place.name); // Establece el valor de la ciudad seleccionada
+        actions.setCity(place.name); // Actualizar la ciudad en el store
       });
     }
-  }, []);
+  }, [actions]);
 
   const handleRemoveTag = (indexToRemove) => {
     setTags(tags.filter((_, index) => index !== indexToRemove));
   };
 
   const handleInputTitleChange = (e) => {
-    setTitleValue(e.target.value);
-    store.newItineraryData.title = e.target.value;
+    const newTitle = e.target.value;
+    setTitleValue(newTitle);
+    actions.setTitle(newTitle); // Actualizar el título en el store
   };
 
   const handleInputDescChange = (e) => {
-    setDescriptionValue(e.target.value);
-    store.newItineraryData.description = e.target.value;
-  };
-
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    const newDescription = e.target.value;
+    setDescriptionValue(newDescription);
+    actions.setDescription(newDescription); // Actualizar la descripción en el store
   };
 
   const handleCityChange = (e) => {
-    setCityValue(e.target.value);
+    const newCity = e.target.value;
+    setCityValue(newCity);
+    actions.setCity(newCity); // Actualizar la ciudad en el store
   };
 
   const handleSelectTag = (tag) => {
@@ -105,6 +106,7 @@ export const InputRutas = () => {
           aria-label="Titulo"
           aria-describedby="basic-addon1"
           maxLength="35"
+          value={titleValue}
           onChange={handleInputTitleChange}
           required
         />
@@ -162,6 +164,7 @@ export const InputRutas = () => {
           rows="6"
           placeholder="Escribe algo aquí..."
           maxLength="250"
+          value={descriptionValue}
           onChange={handleInputDescChange}
           required
         ></textarea>
