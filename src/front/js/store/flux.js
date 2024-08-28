@@ -21,6 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				title: '',
 				description: '',
 				duration: undefined,
+				city: '',
 				itinerary: {},
 				images: {"img": []}
 			}
@@ -39,23 +40,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({
 					newItineraryData: {
 						...store.newItineraryData,
-						itinerary: newItinerary
+						itinerary: newItinerary,
+						duration: Object.keys(newItinerary).length
 					}
 				});
 			},
 			deleteDay: (key) => {
 				const store = getStore();
 				const deleteItinerary = { ...store.newItineraryData.itinerary };
-
+			  
+				// Eliminar el día seleccionado
 				delete deleteItinerary[key];
-
+			  
+				// Crear un nuevo objeto con las claves actualizadas
+				const newItinerary = {};
+				let dayIndex = 1;
+			  
+				// Recorrer el itinerario modificado y reasignar claves
+				Object.keys(deleteItinerary)
+				  .sort((a, b) => parseInt(a.split(' ')[1]) - parseInt(b.split(' ')[1])) // Ordenar las claves por el número del día
+				  .forEach((oldKey) => {
+					newItinerary[`Día ${dayIndex}`] = deleteItinerary[oldKey];
+					dayIndex++;
+				  });
+			  
+				// Actualizar el estado con el itinerario con las claves actualizadas
 				setStore({
-					newItineraryData: {
-						...store.newItineraryData,
-						itinerary: deleteItinerary
-					}
+				  newItineraryData: {
+					...store.newItineraryData,
+					itinerary: newItinerary,
+					duration: Object.keys(newItinerary).length
+				  }
 				});
-			},
+			  },
 			addImg: (url) => {
 				const store = getStore();
 				const newImage = { ...store.newItineraryData.images };
@@ -66,6 +83,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 					newItineraryData: {
 						...store.newItineraryData,
 						images: newImage
+					}
+				});
+			},
+			setTitle: (title) => {
+				const store = getStore();
+				setStore({
+					newItineraryData: {
+						...store.newItineraryData,
+						title: title
+					}
+				});
+			},	
+			setDescription: (description) => {
+				const store = getStore();
+				setStore({
+					newItineraryData: {
+						...store.newItineraryData,
+						description: description
+					}
+				});
+			},
+			
+			setCity: (city) => {
+				const store = getStore();
+				setStore({
+					newItineraryData: {
+						...store.newItineraryData,
+						city: city
 					}
 				});
 			},

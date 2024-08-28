@@ -28,6 +28,8 @@ export const ActivityModal = () => {
         const dayNumber = Object.keys(store.newItineraryData.itinerary).length + 1;
 
         actions.addDay(dayNumber, activities);
+        console.log(activities);
+        console.log(store.newItineraryData.itinerary);
 
         const modalElement = document.getElementById('createDay');
         const modal = bootstrap.Modal.getInstance(modalElement);

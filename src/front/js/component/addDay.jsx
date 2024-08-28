@@ -11,7 +11,6 @@ export const AddDay = () => {
 
   const deleteDay = (e) => {
     actions.deleteDay(e);
-    console.log("click", e);
   };
 
   return (
@@ -23,7 +22,7 @@ export const AddDay = () => {
               id={index}
               title={key}
               del={
-                <i key={key} onClick={deleteDay} className="bi bi-trash3"></i>
+                <i key={key} onClick={() => deleteDay(key)} className="bi bi-trash3"></i>
               }
             >
               <ul>
@@ -45,6 +44,7 @@ export const AddDay = () => {
           icon={<i className="bi bi-plus-lg"></i>}
           toggle={"modal"}
           target={"#createDay"}
+          type={'button'}
         />
       </div>
       <ActivityModal />

@@ -30,6 +30,14 @@ def handle_hello():
     }
     return jsonify(response_body), 200
 
+@api.route('/users', methods=['GET'])
+def get_users():
+    users = User.query.all()
+    users = [user.serialize() for user in users]
+
+    return jsonify({'msg': 'ok',
+                    'users': users}), 200
+
 @api.route('/itineraries', methods=['GET'])
 def get_itineraries():
     city = request.args.get('city')
@@ -60,18 +68,22 @@ def get_single_itinerary(id):
     return jsonify({'msg': 'ok', 'itinerary': itinerary}), 200
 
 @api.route('/itineraries', methods=['POST'])
+@jwt_required()
 def create_itinerary():
     data = request.json
-    required_fields = ['author_id', 'title', 'description', 'duration', 'itinerary']
+    author_id = get_jwt_identity()
+    required_fields = ['title', 'description', 'city', 'duration', 'itinerary']
     missing_fields = [field for field in required_fields if field not in data or not data[field]]
     if missing_fields:
-        return jsonify({'msg': f'Missing fields: {", ".join(missing_fields)}'}), 400
+        print(data)
+        return jsonify({'msg': f'Missing fields: {", ".join(missing_fields)}', 'data': data}), 400
 
     new_itinerary = Itinerary(
-        author_id = data['author_id'],
+        author_id = author_id,
         title = data['title'].strip(),
         description = data['description'].strip(),
         duration = data['duration'],
+        city = data['city'],
         itinerary = data['itinerary'],
         images = data['images']
     )
