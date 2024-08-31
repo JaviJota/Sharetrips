@@ -5,30 +5,37 @@ import { InputRutas } from "./inputRutas.jsx";
 
 const UploadFile = () => {
   const { store, actions } = useContext(Context);
-  const [file, setFile] = useState();
+  const [file, setFile] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "dlfq7smx");
-    formData.append("api_key", "853636263856715");
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dlfq7smx/image/upload",
-      {
-        method: "POST",
-        body: formData,
+  const handleFile = async (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+      formData.append("upload_preset", "dlfq7smx");
+      formData.append("api_key", "853636263856715");
+
+      try {
+        const res = await fetch(
+          "https://api.cloudinary.com/v1_1/dlfq7smx/image/upload",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+        const data = await res.json();
+        if (res.ok) {
+          actions.addImg(data.url);
+        } else {
+          console.error("Error uploading image:", data);
+        }
+      } catch (error) {
+        console.error("Error uploading image:", error);
       }
-    );
-    const data = await res.json();
-    if (res.ok) {
-      actions.addImg(data.url);
     }
-  };
-
-  const handleFile = (e) => {
-    setFile(e.target.files[0]);
   };
 
   return (
@@ -107,18 +114,11 @@ const UploadFile = () => {
               id="file-upload"
               type="file"
               className="d-none"
-              multiple
               onChange={handleFile}
               accept=".jpg, .jpeg, .png, .heif, .webp"
             />
           </label>
         </div>
-        <button
-          className="btn-primary send w-100 rounded-pill px-3 py-2"
-          onClick={handleSubmit}
-        >
-          <i className="me-3 fa-solid fa-upload"></i>Subir imágenes
-        </button>
       </div>
       <InputRutas />
     </div>

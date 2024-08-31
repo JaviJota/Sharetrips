@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useContext } from "react";
+import React, { useState, useCallback, useMemo, useContext, useEffect } from "react";
 import { Context } from "../store/appContext.js";
 import {
   GoogleMap,
@@ -9,16 +9,15 @@ import {
   Autocomplete,
 } from "@react-google-maps/api";
 import AccordionContainer from "./accordionContent.jsx";
-
 import "../../styles/addDay.css";
 import RedButton from "../component/buttons/redButton.jsx";
 
 const containerStyle = {
   width: "100%",
   height: "500px",
-  borderRadius: "20px",  
-  overflow: "hidden",    
-  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)" 
+  borderRadius: "20px",
+  overflow: "hidden",
+  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
 };
 
 const center = {
@@ -29,13 +28,16 @@ const center = {
 const libraries = ["places"];
 
 export const AddDay = () => {
-
-  const { store, actions } = useContext(Context)
+  const { store, actions } = useContext(Context);
   const [map, setMap] = useState(null);
   const [autocomplete, setAutocomplete] = useState(null);
   const [points, setPoints] = useState([]);
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [inputValue, setInputValue] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentDayPoints, setCurrentDayPoints] = useState([]);
+  const [modalDirectionsResponse, setModalDirectionsResponse] = useState(null);
+
   const itineraryDataKeys = Object.keys(store.newItineraryData.itinerary);
 
   const directionsServiceOptions = useMemo(
@@ -58,8 +60,6 @@ export const AddDay = () => {
           address: place.name,
         };
         setPoints((prevPoints) => [...prevPoints, newPoint]);
-
-       
         map.panTo(newPoint);
       }
     }
@@ -90,32 +90,51 @@ export const AddDay = () => {
 
   const handleAddDay = () => {
     const dayNumber = Object.keys(store.newItineraryData.itinerary).length + 1;
-    if (points.length === 0) return; 
-
-    const newDay = points.map(point => point.address);
+    if (points.length === 0) return;
 
     actions.addDay(dayNumber, points);
-
     setPoints([]);
     setDirectionsResponse(null);
-    console.log(points)
   };
 
   const deleteDay = (key) => {
- 
-    actions.deleteDay(key)
+    actions.deleteDay(key);
   };
+
+  const openMapForDay = (dayPoints) => {
+    setCurrentDayPoints(dayPoints);
+    setIsModalOpen(true);
+  };
+
+  useEffect(() => {
+    if (currentDayPoints.length > 1) {
+      const directionsService = new window.google.maps.DirectionsService();
+
+      directionsService.route(
+        {
+          origin: currentDayPoints[0],
+          destination: currentDayPoints[currentDayPoints.length - 1],
+          travelMode: "WALKING",
+          waypoints: currentDayPoints.slice(1, -1).map((point) => ({ location: point })),
+        },
+        (result, status) => {
+          if (status === "OK") {
+            setModalDirectionsResponse(result);
+          } else {
+            console.error(`Error fetching route: ${result}`);
+          }
+        }
+      );
+    }
+  }, [currentDayPoints]);
 
   return (
     <>
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2 className="h4 mb-0">Itinerario:</h2>
-        
       </div>
       <hr className="mt-0" />
       <div className="d-flex flex-column align-items-center">
-
-
         {itineraryDataKeys?.map((key, index) => (
           <div className="mx-auto w-100" key={index}>
             <AccordionContainer
@@ -125,31 +144,22 @@ export const AddDay = () => {
                 <i
                   key={key}
                   onClick={() => deleteDay(key)}
-                  className="bi bi-trash3"
+                  className="bi bi-trash3 ms-3 text-danger"
+                  style={{ cursor: 'pointer' }}
                 ></i>
               }
             >
               <ul>
-                {store.newItineraryData.itinerary[key].map(
-                  (location, index) => (
-                    <li key={index}>{location.address}</li>
-                  )
-                )}
+                {store.newItineraryData.itinerary[key].map((location, locIndex) => (
+                  <li key={locIndex}>{location.address}</li>
+                ))}
               </ul>
             </AccordionContainer>
           </div>
         ))}
-
-
-
-
-       
       </div>
 
-      <LoadScript
-        googleMapsApiKey="APIKEY"
-        libraries={libraries}
-      >
+      <LoadScript googleMapsApiKey="APIKEY" libraries={libraries}>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
@@ -185,7 +195,7 @@ export const AddDay = () => {
             }}
           >
             <input
-            l className="form-control"
+              className="form-control"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               type="text"
@@ -197,17 +207,58 @@ export const AddDay = () => {
                 marginTop: "20px",
               }}
             />
-         </Autocomplete>
-         <button
-          className="btn btn-outline-primary rounded-pill my-1 w-25"
-          type="button"
-          onClick={handleAddDay} 
-        >
-          <i className="bi bi-plus"></i> Añadir día
-        </button>
+          </Autocomplete>
+          <button
+            className="btn btn-outline-primary rounded-pill my-1 w-25"
+            type="button"
+            onClick={handleAddDay}
+          >
+            <i className="bi bi-plus"></i> Añadir día
+          </button>
 
-         <span className="w-25"> <RedButton type={"button"} buttonName={"Eliminar ubicación"} onclick={handleRemoveLastPoint}/></span>
+          <span className="w-25">
+            <RedButton type={"button"} buttonName={"Eliminar ubicación"} onclick={handleRemoveLastPoint} />
+          </span>
         </div>
+
+        {isModalOpen && (
+          <div
+            className="modal fade show"
+            style={{ display: "block" }}
+            tabIndex="-1"
+            aria-labelledby="mapModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-lg">
+              <div className="modal-content border-0 rounded-4">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="mapModalLabel">
+                    Mapa del Día
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={() => setIsModalOpen(false)}
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={currentDayPoints.length > 0 ? currentDayPoints[0] : center}
+                    zoom={currentDayPoints.length > 0 ? 12 : 6}
+                  >
+                    {modalDirectionsResponse && (
+                      <DirectionsRenderer
+                        options={{ directions: modalDirectionsResponse }}
+                      />
+                    )}
+                  </GoogleMap>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </LoadScript>
     </>
   );
