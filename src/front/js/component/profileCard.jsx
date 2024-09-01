@@ -1,19 +1,26 @@
 import React from "react";
-import { USER_DATA } from "./data/userData.js";
-import FollowButton from "./buttons/followButton.jsx";
+import { USER_DATA } from "./data/userData";
+import FollowButton from "../component/buttons/followButton.jsx"
 import "../../styles/profileCard.css";
+import Avvvatars from "avvvatars-react";
 
 const ProfileCard = () => {
   return (
     <>
       <div className="profile-card mx-5 my-5">
         <i className="settings fs-3 fa-solid fa-gear d-flex justify-content-end me-5"></i>
-        <img
-          className="profile-img my-5 mx-auto"
-          src={USER_DATA.profileimg}
-          alt=""
-        />
         <div className="d-grid gap-4">
+          <span className="profile-image mx-auto">
+            {USER_DATA.profileImg ? (
+              <img
+                src={USER_DATA.profileImg}
+                alt="User profile"
+                className="profile-img"
+              />
+            ) : (
+              <Avvvatars value={USER_DATA.username} size={300} />
+            )}
+          </span>
           <span className="username fw-bold mx-auto">
             @{USER_DATA.username}
           </span>

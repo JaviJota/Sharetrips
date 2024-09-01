@@ -37,6 +37,9 @@ export const AddDay = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentDayPoints, setCurrentDayPoints] = useState([]);
   const [modalDirectionsResponse, setModalDirectionsResponse] = useState(null);
+  const [descriptionModalOpen, setDescriptionModalOpen] = useState(false);
+  const [description, setDescription] = useState("");
+  const [selectedDay, setSelectedDay] = useState(null);
 
   const itineraryDataKeys = Object.keys(store.newItineraryData.itinerary);
 
@@ -106,6 +109,17 @@ export const AddDay = () => {
     setIsModalOpen(true);
   };
 
+  const openDescriptionModal = (dayKey) => {
+    setSelectedDay(dayKey);
+    setDescription(store.newItineraryData.itinerary[dayKey].description || "");
+    setDescriptionModalOpen(true);
+  };
+
+  const handleDescriptionSave = () => {
+    actions.updateDayDescription(selectedDay, description);
+    setDescriptionModalOpen(false);
+  };
+
   useEffect(() => {
     if (currentDayPoints.length > 1) {
       const directionsService = new window.google.maps.DirectionsService();
@@ -154,12 +168,33 @@ export const AddDay = () => {
                   <li key={locIndex}>{location.address}</li>
                 ))}
               </ul>
+              <div className="d-flex justify-content-between align-items-center mt-2">
+                <button
+                  className="btn btn-outline-primary rounded-pill me-2"
+                  type="button"
+                  onClick={() => openMapForDay(store.newItineraryData.itinerary[key])}
+                >
+                  <i className="bi bi-map"></i> Ver mapa del día
+                </button>
+                <button
+                  className="btn btn-outline-secondary rounded-pill"
+                  type="button"
+                  onClick={() => openDescriptionModal(key)}
+                >
+                  <i className="bi bi-pencil"></i> Añadir descripción
+                </button>
+              </div>
+              {store.newItineraryData.itinerary[key].description && (
+                <div className="mt-2">
+                  <p><strong>Descripción:</strong> {store.newItineraryData.itinerary[key].description}</p>
+                </div>
+              )}
             </AccordionContainer>
           </div>
         ))}
       </div>
 
-      <LoadScript googleMapsApiKey="APIKEY" libraries={libraries}>
+      <LoadScript googleMapsApiKey="AIzaSyBb4Grn5g0zNbB_gz6Ksy06rnOU-68yZFQ" libraries={libraries}>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
@@ -254,6 +289,50 @@ export const AddDay = () => {
                       />
                     )}
                   </GoogleMap>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {descriptionModalOpen && (
+          <div
+            className="modal fade show"
+            style={{ display: "block" }}
+            tabIndex="-1"
+            aria-labelledby="descriptionModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-lg">
+              <div className="modal-content border-0 rounded-4">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="descriptionModalLabel">
+                    Descripción del Día
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={() => setDescriptionModalOpen(false)}
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <textarea
+                    className="form-control"
+                    rows="5"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Escribe una descripción..."
+                  />
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={handleDescriptionSave}
+                  >
+                    Guardar
+                  </button>
                 </div>
               </div>
             </div>
