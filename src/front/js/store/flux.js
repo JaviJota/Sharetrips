@@ -44,6 +44,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 			},
+			setNewItineraryData: (data) => {
+				const store = getStore();
+				setStore({
+				  ...store,
+				  newItineraryData: data.itinerary,
+				});
+				console.log(store.newItineraryData)
+			  },
 			deleteDay: (key) => {
 				const store = getStore();
 				const deleteItinerary = { ...store.newItineraryData.itinerary };
