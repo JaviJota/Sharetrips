@@ -6,10 +6,12 @@ export const EditInfoRutas = () => {
   const { store, actions } = useContext(Context);
   const [tags, setTags] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [titleValue, setTitleValue] = useState(store.newItineraryData.title);
-  const [descriptionValue, setDescriptionValue] = useState(store.newItineraryData.description);
-  const [cityValue, setCityValue] = useState(store.newItineraryData.city); // Nueva variable de estado para la ciudad
+  const [titleValue, setTitleValue] = useState("");
+  const [descriptionValue, setDescriptionValue] = useState("");
+  const [cityValue, setCityValue] = useState(""); // Nueva variable de estado para la ciudad
   const cityInputRef = useRef(null); // Ref para el input de la ciudad
+  console.log("ayuda", store.newItineraryData.title);
+  console.log("aasdadadadasd");
 
   const predefinedTags = [
     "Rutas de senderismo",
@@ -25,6 +27,12 @@ export const EditInfoRutas = () => {
     "Turismo rural",
     "Destinos históricos",
   ];
+
+  useEffect(() => {
+    setTitleValue(store.newItineraryData.title || "");
+    setDescriptionValue(store.newItineraryData.description || "");
+    setCityValue(store.newItineraryData.city || "");
+  }, [store.newItineraryData]);
 
   useEffect(() => {
     if (window.google) {
@@ -106,7 +114,7 @@ export const EditInfoRutas = () => {
           aria-label="Titulo"
           aria-describedby="basic-addon1"
           maxLength="35"
-          value={titleValue}
+          value={titleValue ? titleValue : ""}
           onChange={handleInputTitleChange}
           required
         />
@@ -123,7 +131,10 @@ export const EditInfoRutas = () => {
               aria-label="Remove"
               onClick={() => handleRemoveTag(index)}
             >
-              <i className="fa-solid fa-x fa-xs" style={{ color: "#949494" }}></i>
+              <i
+                className="fa-solid fa-x fa-xs"
+                style={{ color: "#949494" }}
+              ></i>
             </span>
           </span>
         ))}
