@@ -33,7 +33,8 @@ export const Search = () => {
         {itineraries && itineraries.length > 0 ? (
           itineraries.map((itinerary, index) => (
             <div
-              className="searchRouteCard col-lg-6 col-xl-6 col-xxl-4 d-flex justify-content-center mb-md-4 "
+              // className="searchRouteCard col-lg-6 col-xl-6 col-xxl-4 d-flex justify-content-center mb-md-4"
+              className="searchRouteCard col-12 col-xl-6 d-flex justify-content-center mb-md-4"
               key={index}
             >
               <RouteCard

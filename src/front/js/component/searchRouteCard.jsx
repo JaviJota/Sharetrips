@@ -7,14 +7,13 @@ export const RouteCard = ({ id, title, img, desc, score }) => {
   return (
     <Link to={`/route/${id}`} style={{cursor: 'pointer'}}>
       <div
-        className="route-card card mb-3 border-0"
-       
+        className="route-card card mx-auto border-0 d-flex justify-content-center"
       >
-        <div className="d-flex flex-column flex-md-row g-0 p-3 pb-5">
-          <div className="col-md-4 pb-0 route-img">
+        <div className="d-flex flex-column flex-md-row g-0 px-4 py-3">
+          <div className="col-md-4 m-0 route-img">
             <img
               src={img}
-              className="imgCard rounded-4"
+              className="imgCard rounded-4 my-auto"
               alt="Imagen de ruta"
             />
           </div>
