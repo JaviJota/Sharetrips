@@ -48,7 +48,7 @@ export const Jumbotron = () => {
         <h1 className="fw-bold ps-0">
           Tu próxima aventura
           <br />
-          <span>comienza con las mejores rutas.</span>
+          <span>comienza con las mejores rutas</span>
         </h1>
       </div>
     </div>
