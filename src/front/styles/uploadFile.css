@@ -41,3 +41,18 @@
   #uploadedFile {
     width: 750px
   }
+
+  @media only screen and (max-width: 600px){
+    .uploaded {
+        width: 327px;
+        height: 164px;
+        border-radius: 20px !important;
+    }
+
+    #uploadedFile {
+      width: 327px;
+      border-radius: 20px !important;
+      
+    }
+
+  }

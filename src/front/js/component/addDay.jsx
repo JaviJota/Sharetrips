@@ -145,9 +145,9 @@ export const AddDay = () => {
   return (
     <>
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="h4 mb-0">Itinerario:</h2>
+        <h2 className=" ms-3 md-ms-0 h4 mb-0">Itinerario:</h2>
       </div>
-      <hr className="mt-0" />
+      <hr className="mt-0 ms-3" />
       <div className="d-flex flex-column align-items-center">
         {itineraryDataKeys?.map((key, index) => (
           <div className="mx-auto w-100" key={index}>
@@ -194,8 +194,9 @@ export const AddDay = () => {
         ))}
       </div>
 
-      <LoadScript googleMapsApiKey="AIzaSyBb4Grn5g0zNbB_gz6Ksy06rnOU-68yZFQ" libraries={libraries}>
-        <GoogleMap
+      <LoadScript googleMapsApiKey="" libraries={libraries}>
+       <div className="map ms-3">
+       <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
           zoom={8}
@@ -220,8 +221,9 @@ export const AddDay = () => {
             />
           )}
         </GoogleMap>
+       </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
+        <div  className="ms-3" style={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
           <Autocomplete
             onLoad={handleAutocompleteLoad}
             onPlaceChanged={handlePlaceSelect}
@@ -230,28 +232,23 @@ export const AddDay = () => {
             }}
           >
             <input
-              className="form-control"
+              className="addLocation form-control"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               type="text"
               placeholder="Introduce una ubicación"
-              style={{
-                width: "400px",
-                height: "40px",
-                marginBottom: "10px",
-                marginTop: "20px",
-              }}
+              
             />
           </Autocomplete>
           <button
-            className="btn btn-outline-primary rounded-pill my-1 w-25"
+            className="btn btn-outline-primary rounded-pill mb-2 col-md-3 "
             type="button"
             onClick={handleAddDay}
           >
             <i className="bi bi-plus"></i> Añadir día
           </button>
 
-          <span className="w-25">
+          <span className="deleteLocationButton">
             <RedButton type={"button"} buttonName={"Eliminar ubicación"} onclick={handleRemoveLastPoint} />
           </span>
         </div>

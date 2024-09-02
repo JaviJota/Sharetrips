@@ -39,7 +39,7 @@ const UploadFile = () => {
   };
 
   return (
-    <div className="col-5 upload-file my-5 mx-auto">
+    <div className="col-md-5 upload-file my-5 mx-auto">
       {store.newItineraryData.images.img.length > 0 ? (
         <div id="uploadedFile" className="carousel slide mt-3">
           <div className="carousel-inner uploaded">
@@ -50,7 +50,7 @@ const UploadFile = () => {
                     ? store.newItineraryData.images.img[0]
                     : ""
                 }
-                className="d-block uploaded"
+                className="d-block uploaded "
                 alt="Imagen añadida"
               />
             </div>

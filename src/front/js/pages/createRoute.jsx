@@ -57,7 +57,7 @@ export const CreateRoute = (props) => {
       <form className="" onSubmit={handleSubmit}>
         <div className="row w-100 justify-content-center ">
           <UploadFile />
-          <div className="col-5 my-5 mx-5">
+          <div className="col-12 col-md-5 my-5 mx-md-5">
             {/* <div className="float-end"> */}
             <AddDay />
             <div className="d-flex gap-3 w-75 mb-5 mx-auto mt-5">
