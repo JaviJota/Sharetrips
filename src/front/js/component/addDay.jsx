@@ -145,7 +145,7 @@ export const AddDay = () => {
   return (
     <>
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className=" ms-3 md-ms-0 h4 mb-0">Itinerario:</h2>
+        <h2 className=" mt-md-5 ms-3 md-ms-0 h4 mb-0">Itinerario:</h2>
       </div>
       <hr className="mt-0 ms-3" />
       <div className="d-flex flex-column align-items-center">
@@ -194,7 +194,7 @@ export const AddDay = () => {
         ))}
       </div>
 
-      <LoadScript googleMapsApiKey="" libraries={libraries}>
+      <LoadScript googleMapsApiKey="AIzaSyC20pludzsgDBOMAznGfEvwYsZihsnxu8E" libraries={libraries}>
        <div className="map ms-3">
        <GoogleMap
           mapContainerStyle={containerStyle}

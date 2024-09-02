@@ -4,7 +4,7 @@ import "../../styles/ruteDescription.css";
 const RouteDescription = ({ data }) => {
   return (
     <>
-      <div className="description mx-5 my-5">
+      <div className="description w-100 mx-5 my-5">
         <header className="d-flex my-4 justify-content-between">
           <h5>{data.title}</h5>
           <span>Valoración</span>
@@ -16,7 +16,7 @@ const RouteDescription = ({ data }) => {
             ))}
           </span> */}
         </div>
-        <section>
+        <section className="w-100">
           <h5>{data.duration} días.</h5>
           <p>{data.description}</p>
         </section>

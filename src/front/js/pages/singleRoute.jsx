@@ -148,7 +148,7 @@ export const SingleRoute = () => {
               </div>
               <div className="modal-body">
                 <LoadScript
-                  googleMapsApiKey="APIKEY"
+                  googleMapsApiKey="AIzaSyC20pludzsgDBOMAznGfEvwYsZihsnxu8E"
                   libraries={libraries}
                   onLoad={handleScriptLoad}
                 >
