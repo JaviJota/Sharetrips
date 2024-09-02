@@ -9,6 +9,7 @@ import { SingleRoute } from "./pages/singleRoute.jsx";
 import { CreateRoute } from "./pages/createRoute.jsx";
 import { EditRoute } from "./pages/editeRoute2.jsx";
 import { Profile } from "./pages/profile.jsx";
+import ResetPassword from "./pages/resetPassword.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -35,6 +36,7 @@ const Layout = () => {
                         <Route element={<CreateRoute />} path="/route/create" />
                         <Route element={<EditRoute />} path="/route/edit/:theid" /> 
                         <Route element={<Profile />} path="/user" />
+                        <Route element={<ResetPassword />} path="/reset-password/:token" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

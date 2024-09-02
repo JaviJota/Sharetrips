@@ -1,5 +1,6 @@
+
 from flask import Flask, request, jsonify, Blueprint
-from api.models import db, User, Itinerary, Contacts
+from api.models import db, User, Itinerary, Contacts, Comments
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 import bcrypt
 from flask_cors import CORS
@@ -37,6 +38,17 @@ def get_users():
 
     return jsonify({'msg': 'ok',
                     'users': users}), 200
+
+@api.route('/users/<int:id>', methods=['GET'])
+def get_user_by_id(id):
+    user = User.query.get(id)
+    
+    if user is None:
+        return jsonify({'msg': 'User not found'}), 404
+
+    return jsonify({'msg': 'ok',
+                    'user': user.serialize()}), 200
+
 
 @api.route('/itineraries', methods=['GET'])
 def get_itineraries():
@@ -235,3 +247,77 @@ def verify_password():
     
     return jsonify({'msg': 'Contraseña verificada'}), 200
 
+@api.route('/profile', methods=['GET'])
+@jwt_required()
+def get_profile():
+   
+    current_user_id = get_jwt_identity()
+    
+  
+    user = User.query.get(current_user_id)
+    
+ 
+    if not user:
+        return jsonify({'msg': 'Usuario no encontrado'}), 404
+    
+ 
+    user_profile = user.serialize()
+    
+
+    return jsonify({'msg': 'Perfil obtenido con éxito', 'profile': user_profile}), 200
+
+@api.route('/itineraries/<int:id>/comments', methods=['GET'])
+def get_itinerary_comments(id):
+    try:
+        itinerary = Itinerary.query.get(id)
+        if not itinerary:
+            return jsonify({'msg': 'Itinerary not found'}), 404
+
+        comment = Comments.query.filter_by(itinerary_id=id).first() 
+        if comment:
+            return jsonify({'msg': 'ok', 'comment': comment.serialize()}), 200
+        else:
+            return jsonify({'msg': 'No comments found'}), 404
+    except Exception as e:
+        return jsonify({'msg': 'Error en el servidor', 'error': str(e)}), 500
+
+
+
+@api.route('/user/social-media', methods=['GET'])
+@jwt_required()
+def get_social_media():
+    current_user_id = get_jwt_identity()
+    
+   
+    user = User.query.get(current_user_id)
+    
+   
+    if not user:
+        return jsonify({'msg': 'Usuario no encontrado'}), 404
+    
+   
+    social_media = user.social_media
+    
+   
+    return jsonify({'msg': 'Redes sociales obtenidas con éxito', 'social_media': social_media}), 200
+
+
+@api.route('/my-itineraries/comments-count', methods=['GET'])
+@jwt_required()
+def get_comments_count_for_my_itineraries():
+    try:
+        current_user_id = get_jwt_identity()
+        
+        # Obtener todos los itinerarios creados por el usuario autenticado
+        itineraries = Itinerary.query.filter_by(author_id=current_user_id).all()
+        
+        if not itineraries:
+            return jsonify({'msg': 'No itineraries found for this user'}), 404
+        
+        # Obtener la cantidad total de comentarios en esos itinerarios
+        itinerary_ids = [itinerary.id for itinerary in itineraries]
+        comments_count = Comments.query.filter(Comments.itinerary_id.in_(itinerary_ids)).count()
+
+        return jsonify({'msg': 'ok', 'comments_count': comments_count}), 200
+    except Exception as e:
+        return jsonify({'msg': 'Server error', 'error': str(e)}), 500
