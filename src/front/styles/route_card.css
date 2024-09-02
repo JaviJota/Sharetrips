@@ -9,10 +9,8 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-@media only screen and (max-width: 600px){
-.card-top{
-  margin-top: 5%;
-  align-items: baseline;
+.routeCard {
+  height: 210px;
 }
 
 .route-img{
@@ -24,4 +22,42 @@
 .founded {
   margin-bottom: 0 !important;
 }
+
+
+.route-card {
+ width: 630px;
+ background: #D9D9D9;
+ border-radius: 15px;
 }
+
+.imgCard {
+  height: 200px;
+  width: 200px;
+  border-radius: 15px;
+  object-fit: cover !important;
+  
+
+}
+
+@media only screen and (max-width: 600px){
+  .card-top{
+    margin-top: 5%;
+    align-items: baseline;
+  }
+
+  .route-card {
+    width: 350px;
+    height: 550px;
+    max-height: 650px;
+    border-radius: 15px;
+   }
+
+   .imgCard {
+    height: 170px;
+    width: 300px;
+    border-radius: 15px;
+    object-fit: cover !important;
+  }
+
+}
+

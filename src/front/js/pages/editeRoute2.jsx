@@ -8,10 +8,50 @@ import Accordion from "../component/accordion.jsx";
 import { AddDay } from "../component/addDay.jsx";
 import ActivityModal from "../component/activityModal.jsx";
 import "../../styles/createRoute.css";
+import EditFile from "../component/editRouteComp/editFile.jsx";
 
-export const CreateRoute = (props) => {
+
+export const EditRoute = (props) => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  const params = useParams();
+  const id = params.theid
+  
+  // Obtenemos el ID de la ruta a editar desde los parámetros de la URL
+
+  useEffect(() => {
+    console.log(id)
+    if (id) {
+      const loadRouteData = async () => {
+        try {
+          const resp = await fetch(
+            `${process.env.BACKEND_URL}/api/itineraries/${id}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                accept: "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          );
+          const data = await resp.json();
+          console.log('aaaaaaaaaaaaaaaaaa', data)
+          console.log("Route ID:", id);
+          if (!resp.ok) {
+            throw new Error(data.msg || "Error loading itinerary data");
+          }
+          actions.setNewItineraryData(data);
+        } catch (error) {
+          console.error("Error loading itinerary:", error.message);
+        }
+      };
+
+      loadRouteData();
+    } else {
+      console.error("Route ID is undefined.");
+    }
+  }, [id]);
 
   const handleDiscard = () => {
     navigate("/user");
@@ -28,15 +68,18 @@ export const CreateRoute = (props) => {
       store.newItineraryData.images.img.length > 0
     ) {
       try {
-        const resp = await fetch(process.env.BACKEND_URL + "/api/itineraries", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            accept: "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-          body: JSON.stringify(store.newItineraryData),
-        });
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/itineraries/${id}`,
+          {
+            method: "PUT", // Cambiamos el método a PUT para actualizar la ruta existente
+            headers: {
+              "Content-Type": "application/json",
+              accept: "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+            body: JSON.stringify(store.newItineraryData),
+          }
+        );
         const data = await resp.json();
 
         if (!resp.ok) {
@@ -47,18 +90,18 @@ export const CreateRoute = (props) => {
         window.location.reload();
         return { success: true, data: data }, 200;
       } catch (error) {
-        console.error("Error creating itinerary:", error.message);
+        console.error("Error updating itinerary:", error.message);
         return { success: false, msg: error.message };
       }
     }
   };
+
   return (
     <>
       <form className="" onSubmit={handleSubmit}>
-        <div className="row w-100 ">
-          <UploadFile />
+        <div className="row w-100">
+          <EditFile />
           <div className="col-12 col-md-5 my-2 mx-md-5">
-            {/* <div className="float-end"> */}
             <AddDay />
             <div className="d-flex gap-3 w-75 mb-5 mx-auto mt-5">
               <button
@@ -72,10 +115,9 @@ export const CreateRoute = (props) => {
                 type="submit"
                 className="btn btn-primary publish rounded-pill flex-grow-1"
               >
-                Publicar
+                Guardar cambios
               </button>
             </div>
-            {/* </div> */}
           </div>
         </div>
       </form>

@@ -13,7 +13,7 @@
 }
 
 .comments{
-  max-width: 90%;
+  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -23,7 +23,8 @@
 }
 
 .header{
-  gap: 5rem
+  gap: 5rem;
+  font-size: small;
 }
 .date{
   margin-left: 5rem;

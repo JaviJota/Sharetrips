@@ -7,7 +7,7 @@ const CommentsSection = () => {
   return (
     <>
       <section className="comments">
-        <div className="header d-flex mx-5 my-5">
+        <div className="header d-flex  my-5">
           <h4>Comentarios de usuarios</h4>
           <button type="button" class="btn btn-outline-primary">
             Comentar Ruta

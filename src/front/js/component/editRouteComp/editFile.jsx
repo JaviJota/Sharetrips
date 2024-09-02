@@ -1,12 +1,11 @@
 import React, { useContext, useState } from "react";
-import "../../styles/uploadFile.css";
-import { Context } from "../store/appContext";
-import { InputRutas } from "./inputRutas.jsx";
+import { Context } from "../../store/appContext.js";
+// import { InputRutas } from "./inputRutas.jsx";
+import { EditInfoRutas } from "./editInfoRutas.jsx";
 
-const UploadFile = () => {
+const EditFile = () => {
   const { store, actions } = useContext(Context);
   const [file, setFile] = useState(null);
-
 
   const handleFile = async (e) => {
     const selectedFile = e.target.files[0];
@@ -120,9 +119,9 @@ const UploadFile = () => {
           </label>
         </div>
       </div>
-      <InputRutas />
+      <EditInfoRutas />
     </div>
   );
 };
 
-export default UploadFile;
+export default EditFile;

@@ -21,14 +21,14 @@ export const Home = () => {
       {/* <ForgotPassword /> */}
       <Jumbotron />
       <h4>Rutas destacadas 🔥</h4>
-      <div className=" row justify-content-around justify-content-xxl-evenly mx-5">
-        <div className="col-xs-12 col-xxl-4 d-flex justify-content-center">
+      <div className=" row justify-content-around justify-content-xxl-evenly mx-5 ">
+        <div className="col-lg-4 d-flex justify-content-center">
           <RutaDestacada />
         </div>
-        <div className="col-xs-12 col-xxl-4 d-flex justify-content-center">
+        <div className="col-lg-4 d-flex justify-content-center">
           <RutaDestacada />
         </div>
-        <div className="col-xs-12 col-xxl-4 d-flex justify-content-center">
+        <div className="col-lg-4 d-flex justify-content-center">
           <RutaDestacada />
         </div>
       </div>
