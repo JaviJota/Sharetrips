@@ -4,6 +4,8 @@ import { Context } from "../store/appContext";
 import { ItineraryCarrusel } from "../component/itineraryCarrusel.jsx";
 import RouteDescription from "../component/routeDescription.jsx";
 import AccordionContainer from "../component/accordionContent.jsx";
+import CommentsSection from "../component/commentsSection.jsx";
+import FollowCard from "../component/followCard.jsx";
 import {
   GoogleMap,
   LoadScript,
@@ -98,11 +100,15 @@ export const SingleRoute = () => {
 
   return (
     <div className="row w-100 justify-content-center">
-      <div className="col-5 my-5 mx-auto">
+      <div className="left-col col-12 col-md-6 my-5 ms-3 ms-md-4 ms-md-0 ">
         <ItineraryCarrusel images={itinerary.images.img} />
+        <hr className="my-5  w-75 mx-auto" />
         <RouteDescription data={itinerary} />
+        <hr className="my-5 w-75 mx-auto " />
+        <FollowCard/>
+        <hr className="mt-5  w-75 mx-auto d-block d-md-none" />
       </div>
-      <div className="col-5 my-5 mx-5">
+      <div className="right-col col-12 col-md-5 my-5 mx-5">
         <div className="d-flex flex-column align-items-center">
           {itineraryKeys.map((key, index) => (
             <div className="mx-auto w-100" key={index}>
@@ -123,6 +129,8 @@ export const SingleRoute = () => {
             </div>
           ))}
         </div>
+        <hr className="mt-5 ms-3" />
+        <CommentsSection/>
       </div>
 
       {isModalOpen && (
@@ -133,7 +141,7 @@ export const SingleRoute = () => {
           aria-labelledby="mapModalLabel"
           aria-hidden="true"
         >
-          <div className="modal-dialog modal-xl">
+          <div className="modal-dialog modal-xl modal-fullscreen-md-down">
             <div className="modal-content border-0 rounded-4">
               <div className="modal-header">
                 <h5 className="modal-title" id="mapModalLabel">

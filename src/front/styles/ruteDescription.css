@@ -5,7 +5,8 @@
 }
 
 .description {
-    max-width: 40%;
+    max-width: 70%;
+    word-break:break-all;
  
 }
 .tag {

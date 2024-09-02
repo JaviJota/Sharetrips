@@ -1,9 +1,10 @@
 import React from "react";
+import "../../styles/itineraryCarrusel.css"
 
 export const ItineraryCarrusel = ({ images }) => {
   return (
     <>
-      <div id="itineraryCarrusel" className="carousel slide">
+      <div id="itineraryCarrusel" className="itineraryCarrusel carousel slide mx-auto mx-md-0">
         <div className="carousel-inner uploaded">
           <div className="carousel-item active">
             <img

@@ -1,0 +1,9 @@
+@media only screen and (max-width: 600px){
+    .itineraryCarrusel {
+        width: 327px;
+        height: 164px;
+        border-radius: 20px !important;
+    }
+
+
+  }

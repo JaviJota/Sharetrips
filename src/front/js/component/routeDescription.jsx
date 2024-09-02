@@ -7,7 +7,7 @@ const RouteDescription = ({ data }) => {
       <div className="description w-100 mx-5 my-5">
         <header className="d-flex my-4 justify-content-between">
           <h5>{data.title}</h5>
-          <span>Valoración</span>
+          <span>{data.duration} días.</span>
         </header>
         <div className="tags d-flex my-4">
           {/* <span>
@@ -16,10 +16,10 @@ const RouteDescription = ({ data }) => {
             ))}
           </span> */}
         </div>
-        <section className="w-100">
-          <h5>{data.duration} días.</h5>
-          <p>{data.description}</p>
+        <section className="description ">
+          <h5>Descripción de la ruta</h5>
         </section>
+          <p className="">{data.description}</p>
       </div>
     </>
   );
