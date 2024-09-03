@@ -5,7 +5,7 @@ import React, {
   useCallback,
   useContext,
 } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { ItineraryCarrusel } from "../component/itineraryCarrusel.jsx";
 import RouteDescription from "../component/routeDescription.jsx";
@@ -31,9 +31,10 @@ const center = {
 const libraries = ["places"];
 
 export const SingleRoute = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const params = useParams();
-  const [currentUserId, setCurrentUserId] = useState(undefined);
+  const [currentUserId, setCurrentUserId] = useState(null);
+  const navigate = useNavigate();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentDayPoints, setCurrentDayPoints] = useState([]);
