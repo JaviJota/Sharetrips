@@ -164,6 +164,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					setStore({token: data.access_token, user: data.user});
 					localStorage.setItem('token', data.access_token)
+					localStorage.setItem('user', JSON.stringify(data.user))
 					return { success: true }
 				} catch (error) {
 					console.error('Error creating user:', error.message);
@@ -188,6 +189,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					setStore({token: data.access_token, user: data.user});
 					localStorage.setItem('token', data.access_token)
+					localStorage.setItem('user', JSON.stringify(data.user))
 					return { success: true }
 				} catch (error) {
 					console.error('Error login user:', error.message);

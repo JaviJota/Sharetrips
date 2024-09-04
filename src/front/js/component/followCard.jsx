@@ -4,7 +4,7 @@ import FollowButton from "./buttons/followButton.jsx";
 import { USER_DATA } from "./data/userData";
 import Avvvatars from "avvvatars-react";
 
-const FollowCard = ({ username, img }) => {
+const FollowCard = ({ username, img, id }) => {
   return (
     <>
       <div className="follow-card ">
@@ -21,7 +21,7 @@ const FollowCard = ({ username, img }) => {
           </span>
         <div className=" d-grid gap-4">
           <span className="fs-5 fw-bold ">@{username}</span>
-          <FollowButton />
+          <FollowButton id={id}/>
         </div>
       </div>
     </>

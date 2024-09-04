@@ -1,6 +1,6 @@
 
 from flask import Flask, request, jsonify, Blueprint, url_for
-from api.models import db, User, Itinerary, Contacts, Comments
+from api.models import db, User, Itinerary, Contacts, Comments, Follows_Followers_Rel
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, create_refresh_token, decode_token
 import bcrypt
 from flask_cors import CORS
@@ -128,6 +128,7 @@ def get_current_userId():
 
 @api.route('/itineraries', methods=['GET'])
 def get_itineraries():
+    print('prueba')
     city = request.args.get('city')
     duration = request.args.get('duration')
 
@@ -359,18 +360,13 @@ def verify_password():
 def get_profile():
    
     current_user_id = get_jwt_identity()
-    
-  
     user = User.query.get(current_user_id)
     
- 
     if not user:
         return jsonify({'msg': 'Usuario no encontrado'}), 404
-    
  
     user_profile = user.serialize()
     
-
     return jsonify({'msg': 'Perfil obtenido con éxito', 'profile': user_profile}), 200
 
 @api.route('/itineraries/<int:id>/comments', methods=['GET'])
@@ -394,18 +390,13 @@ def get_itinerary_comments(id):
 @jwt_required()
 def get_social_media():
     current_user_id = get_jwt_identity()
-    
-   
     user = User.query.get(current_user_id)
-    
    
     if not user:
         return jsonify({'msg': 'Usuario no encontrado'}), 404
     
-   
     social_media = user.social_media
     
-   
     return jsonify({'msg': 'Redes sociales obtenidas con éxito', 'social_media': social_media}), 200
 
 
@@ -428,3 +419,18 @@ def get_comments_count_for_my_itineraries():
         return jsonify({'msg': 'ok', 'comments_count': comments_count}), 200
     except Exception as e:
         return jsonify({'msg': 'Server error', 'error': str(e)}), 500
+    
+@api.route('/followers', methods=['POST'])
+def create_followers():
+    data = request.json
+    required_fields = ['following_user_id', 'followed_user_id']
+    missing_fields = [field for field in required_fields if field not in data or not data[field]]
+    if missing_fields:
+        return jsonify({'msg': f'Missing fields: {", ".join(missing_fields)}'}), 400
+    new_followers = Follows_Followers_Rel(
+        following_user_id = data['following_user_id'],
+        followed_user_id = data['followed_user_id']
+    )
+    db.session.add(new_followers)
+    db.session.commit()
+    return jsonify({'msg': 'followers created successfully'}), 201

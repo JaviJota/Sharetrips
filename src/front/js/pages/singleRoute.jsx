@@ -146,7 +146,7 @@ export const SingleRoute = () => {
         <hr className="my-5  w-75 mx-auto" />
         <RouteDescription data={itinerary} />
         <hr className="my-5 w-75 mx-auto " />
-        <FollowCard username={itinerary.author} />
+        <FollowCard username={itinerary.author} id={itinerary.author_id}/>
         <hr className="mt-5  w-75 mx-auto d-block d-md-none" />
       </div>
       <div className="right-col col-12 col-md-5 my-5 mx-5">
