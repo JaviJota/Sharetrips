@@ -10,9 +10,9 @@ export const Navbarsearch = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    actions.validateToken(localStorage.getItem('token'));
-  }, []);
+  // useEffect(() => {
+  //   actions.validateToken(localStorage.getItem('token'));
+  // }, []);
 
   return (
     <nav className="navbar navbar-light bg-light navbar-shadow py-4">
