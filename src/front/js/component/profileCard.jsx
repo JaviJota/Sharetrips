@@ -82,10 +82,12 @@ const ProfileCard = ({ data }) => {
       );
 
       const data = await response.json();
+      console.log('aaaaaaaaaaa' + data);
+      console.log(formData);
       if (response.ok) {
         alert("Perfil actualizado con éxito");
         // Cerrar el modal si la actualización es exitosa
-        window.location.reload(); // Refresca la página para reflejar los cambios
+        window.location.reload()
         return true;
       } else {
         alert(`Error: ${data.msg || "Error desconocido"}`);

@@ -28,13 +28,11 @@ const Searchbar = () => {
       });
       const data = await resp.json()
       if (!resp.ok || data.itineraries.length === 0) {
-        // Si la respuesta no es exitosa o no se encontraron itinerarios,
-        // actualiza el store y localStorage con un arreglo vacío.
+
         store.itineraries = [];
         localStorage.setItem('itineraries', JSON.stringify([]));
         navigate('/search', { state: { itineraries: [] } });
       } else {
-        // Si la búsqueda es exitosa, guarda los itinerarios en el store y en localStorage.
         store.itineraries = data.itineraries;
         localStorage.setItem('itineraries', JSON.stringify(data.itineraries));
         navigate('/search', { state: { itineraries: data.itineraries } });

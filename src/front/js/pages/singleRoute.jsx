@@ -77,6 +77,8 @@ export const SingleRoute = () => {
     };
   }, []);
 
+
+
   const getItinerary = store.itineraries.find(
     (itinerary) => itinerary.id === parseInt(params.theid)
   ) || JSON.parse(localStorage.getItem('currentItinerary'));
@@ -95,6 +97,8 @@ export const SingleRoute = () => {
   const itinerary = getItinerary;
   const itineraryKeys = Object.keys(itinerary.itinerary);
 
+
+  
   useEffect(() => {
     if (currentDayPoints.length >= 2 && isModalOpen && mapLoaded) {
       const directionsService = new window.google.maps.DirectionsService();

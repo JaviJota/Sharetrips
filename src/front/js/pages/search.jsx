@@ -32,13 +32,13 @@ export const Search = () => {
     <main>
       <LoginRegister />
       {itineraries.length > 0 ? (
-        <h6 className="mt-5 mb-3 founded">
+        <h6 className="mt-5 mb-5 founded">
           Se {itineraries.length === 1 ? "ha" : "han"} encontrado{" "}
           <b>{itineraries.length}</b>{" "}
           {itineraries.length === 1 ? "itinerario:" : "itinerarios:"}
         </h6>
       ) : (
-        <h6 className="mt-5 mb-3 founded">
+        <h6 className="mt-5 mb-5 founded">
           Se han encontrado <b>0</b> itinerarios:
         </h6>
       )}
@@ -47,7 +47,7 @@ export const Search = () => {
           itineraries.map((itinerary, index) => (
             <div
               // className="searchRouteCard col-lg-6 col-xl-6 col-xxl-4 d-flex justify-content-center mb-md-4"
-              className="searchRouteCard col-12 col-xl-6 d-flex justify-content-center mb-md-4"
+              className="searchRouteCard col-12 col-xl-6 d-flex justify-content-center my-md-4 my-3"
               key={index}
             >
               <RouteCard
