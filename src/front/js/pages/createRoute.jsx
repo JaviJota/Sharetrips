@@ -12,9 +12,11 @@ import "../../styles/createRoute.css";
 export const CreateRoute = (props) => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('user'))
+  const userId = user.id
 
   const handleDiscard = () => {
-    navigate("/user");
+    navigate(`/user/${userId}`);
     window.location.reload();
   };
 
@@ -43,7 +45,7 @@ export const CreateRoute = (props) => {
           const errorMsg = data.msg;
           throw new Error(errorMsg);
         }
-        navigate("/user");
+        navigate(`/user/${userId}`);
         window.location.reload();
         return { success: true, data: data }, 200;
       } catch (error) {

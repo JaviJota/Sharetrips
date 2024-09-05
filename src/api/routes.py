@@ -434,3 +434,22 @@ def create_followers():
     db.session.add(new_followers)
     db.session.commit()
     return jsonify({'msg': 'followers created successfully'}), 201
+
+@api.route('/users/<int:id>', methods=['PUT'])
+@jwt_required()
+def update_user_profile(id):
+    # Aquí deberías tener el código para procesar la solicitud PUT
+    data = request.json
+    user = User.query.get(id)
+    if not user:
+        return jsonify({'msg': 'User not found'}), 404
+
+    # Actualiza el perfil del usuario con los datos recibidos
+    user.description = data['description']
+    user.social_media = data['social_media']
+    user.profile_image = data['profile_image']
+
+    db.session.commit()
+
+    return jsonify({'msg': 'Profile updated successfully'}), 200
+

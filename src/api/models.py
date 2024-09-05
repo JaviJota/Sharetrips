@@ -59,6 +59,7 @@ class User(db.Model):
             "email": self.email,
             "username": self.username,
             "description": self.description,
+            "profile_image": self.profile_image,
             "social_media": self.social_media,
             "creation_date": self.creation_date,
             "itinerary": [itinerary.serialize() for itinerary in self.itineraries],
