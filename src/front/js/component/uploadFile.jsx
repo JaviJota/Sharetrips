@@ -16,7 +16,7 @@ const UploadFile = () => {
       const formData = new FormData();
       formData.append("file", selectedFile);
       formData.append("upload_preset", "dlfq7smx");
-      formData.append("api_key", "853636263856715");
+      formData.append("api_key", process.env.CLOUDINARYAPI);
 
       try {
         const res = await fetch(

@@ -20,7 +20,7 @@ export const Search = () => {
     } else {
       const storedItineraries = JSON.parse(localStorage.getItem('itineraries'));
       store.itineraries =  JSON.parse(localStorage.getItem('itineraries'))
-      if (storedItineraries) {
+      if (storedItineraries.length != store.itinerary) {
         setItineraries(storedItineraries);
       }
     }
@@ -55,7 +55,7 @@ export const Search = () => {
                 title={itinerary.title}
                 img={itinerary.images.img[0]}
                 desc={itinerary.description}
-                score={itinerary.score}
+                days={itinerary.duration}
               />
             </div>
           ))

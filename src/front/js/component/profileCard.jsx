@@ -1,24 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { USER_DATA } from "./data/userData";
 import FollowButton from "../component/buttons/followButton.jsx";
 import "../../styles/profileCard.css";
 import Avvvatars from "avvvatars-react";
+import { Context } from "../store/appContext.js";
 
 const ProfileCard = ({ data }) => {
+  const { store, actions } = useContext(Context)
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user.id;
 
   const [file, setFile] = useState(null);
 
   const [formData, setFormData] = useState({
-    profile_image: "",
-    description: "",
-    social_media: {
-      x: "",
-      facebook: "",
-      instagram: "",
-    },
+    profile_image: store.user?.profile_image,
+    description: store.user?.description,
+    social_media: store.user?.social_media,
   });
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +43,7 @@ const ProfileCard = ({ data }) => {
       const formData = new FormData();
       formData.append("file", selectedFile);
       formData.append("upload_preset", "dlfq7smx");
-      formData.append("api_key", "853636263856715");
+      formData.append("api_key", process.env.CLOUDINARYAPI);
 
       try {
         const res = await fetch(
@@ -82,21 +81,18 @@ const ProfileCard = ({ data }) => {
       );
 
       const data = await response.json();
-      console.log('aaaaaaaaaaa' + data);
-      console.log(formData);
+
       if (response.ok) {
-        alert("Perfil actualizado con éxito");
+        actions.getUser()
         // Cerrar el modal si la actualización es exitosa
         window.location.reload()
         return true;
       } else {
-        alert(`Error: ${data.msg || "Error desconocido"}`);
         console.error("Error en la respuesta:", result);
         return false;
       }
     } catch (error) {
       console.error("Error al actualizar el perfil:", error);
-      alert("Error al actualizar el perfil");
       return false;
     }
   };

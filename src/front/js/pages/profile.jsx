@@ -7,6 +7,8 @@ import CommentBox from "../component/CommentBox.jsx";
 import DescriptionForm from "../component/DescriptionForm.jsx";
 import SocialLinks from "../component/SocialLinks.jsx";
 import Rating from "../component/Rating.js";
+import "../../styles/followCard.css";
+
 
 
 export const Profile = () => {
@@ -48,30 +50,45 @@ export const Profile = () => {
     fetchData(); // Llamamos a la función
   }, [params.theid]);
 
+  const userRoutesMargin = !userData?.description && !userData?.social_media ? {marginLeft: '15%'} : {marginLeft: '1px'}
+  const profileCardMargin = !userData?.description && !userData?.social_media ? {marginRight: '15%'} : {marginRight: '1px'}
+
   return (
     <div className="profile-container">
-      <div className="user-routes-container">
-        <UserRoutes data={userData?.itinerary} id={userData?.id}/>
+      <div className='user-routes-container' style={userRoutesMargin}>
+        <UserRoutes data={userData?.itinerary} id={userData?.id} />
       </div>
-      
+
       <div className="description-box-container">
-        <div className="description-form-container">        
-          <DescriptionForm data={userData}/>
-        </div>
+        {userData?.description ? (
+          <div className="description-form-container">
+            <DescriptionForm data={userData} />
+          </div>
+        ) : (
+          ""
+        )}
+
         {/* <div className="comment-box-container">
           <CommentBox />
         </div> */}
-        <div className="social-box-container">
-          <SocialLinks data={userData}/>
-        </div>
+        {userData?.social_media ? (
+          <div className="social-box-container">
+            <SocialLinks data={userData} />
+          </div>
+        ) : (
+          ""
+        )}
+        {/* <div className="social-box-container">
+          <SocialLinks data={userData} />
+        </div> */}
         {/* <div className="rating-box-container">
           <Rating />
         </div> */}
       </div>
-      
-      <div className="profile-card-container">
-        <ProfileCard data={userData}/>
-      </div> 
+
+      <div className="profile-card-container" style={profileCardMargin}>
+        <ProfileCard data={userData} />
+      </div>
     </div>
   );
 };

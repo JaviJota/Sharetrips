@@ -52,7 +52,7 @@ console.log(data?.id)
         
       </div>
       <Link to={`/route/${data?.id}`}>
-      <h3 className="text-center text-md-start mt-3 mb-4 ms-1">{data?.title}</h3>
+      <h3 className="titulo-ruta-destacada text-center text-md-start mt-3 mb-4 ms-1">{data?.title}</h3>
       </Link>
     </div>
   );

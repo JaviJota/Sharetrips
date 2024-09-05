@@ -443,11 +443,13 @@ def update_user_profile(id):
     user = User.query.get(id)
     if not user:
         return jsonify({'msg': 'User not found'}), 404
-
+    img = data.get('profile_image')
+    if len(img) == 0:
+        img = user.profile_image
     # Actualiza el perfil del usuario con los datos recibidos
-    user.description = data['description']
-    user.social_media = data['social_media']
-    user.profile_image = data['profile_image']
+    user.description = data.get('description', user.description)
+    user.social_media = data.get('social_media', user.social_media)
+    user.profile_image = img
 
     db.session.commit()
 

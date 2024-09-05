@@ -12,8 +12,8 @@ const UserRoutes = ({ data, id }) => {
 
   return (
     <>
-      <div className="userRoutes ms-1 my-4 justify-content-center ">
-        <h2 className="text-center fw-bold pt-5 pb-2">Mis Rutas</h2>
+      <div className="userRoutes ms-md-3 my-4 justify-content-center ">
+        <h2 className="text-center fw-bold pt-5 pb-3">Mis Rutas</h2>
         {data?.map((route, index) => (
           <SmallRouteCard
             img={route.images?.img[0]}
