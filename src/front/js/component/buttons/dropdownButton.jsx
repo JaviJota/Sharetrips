@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LogoutLink from "../logout.js";
 import { Link } from "react-router-dom";
 
 const DropdownButton = ({ buttonName, icon }) => {
-const user = JSON.parse(localStorage.getItem('user'))
-const userId = user.id
+
+  const [userId, setUserId] = useState(null);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user?.id) {
+      setUserId(user.id);
+    }
+  }, []);
 
   return (
     <div className="dropdown">
