@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import LogoutLink from "../logout.js";
 import { Link } from "react-router-dom";
+import "../../../styles/dropDownButton.css"
+
 
 const DropdownButton = ({ buttonName, icon }) => {
 
@@ -22,14 +24,14 @@ const DropdownButton = ({ buttonName, icon }) => {
       >
         {icon} {buttonName}
       </button>
-      <ul className="dropdown-menu dropdown-menu-light">
+      <ul className="dropdown-menu custom-dropdown-menu">
         <li>
-          <Link to={`/user/${userId}`}>
+          <Link to={`/user/${userId}`} className="dropdown-item">
             Mi perfil
           </Link>
         </li>
         <li>
-          <Link to={'/route/create'}>
+          <Link to={'/route/create'} className="dropdown-item">
             Crear itinerario
           </Link>
         </li>

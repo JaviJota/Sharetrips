@@ -4,32 +4,33 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.smallroute {
-width: 70px;
-height: 70px;
-object-fit: cover; 
-margin-right: 1rem;
-border-radius: 12px;
-}
 
-.smallRouteCard{
-  background-color: #fffaff;
-  width: 420px;
-  height: 100px;
-  border-radius: 26px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  margin: 0 auto;
-  margin-bottom: 1rem;
+
+@media (max-width: 768px) {
+  .smallroute {
+      width: 50px;
+      height: 50px;
+  }
   
+  .smallRouteCard {
+      width: 100%;
+      max-width: 100%; /* Asegura que las tarjetas de rutas se adapten al ancho disponible */
+  }
+  
+  .userRoutes {
+      width: 100%;
+      max-width: 100%; /* Asegura que las rutas de usuario se adapten al ancho disponible */
+      min-height: auto; /* Ajusta la altura mínima para pantallas más pequeñas */
+  }
 }
 
-.userRoutes {
-  width: 490px;
-  min-height: 600px;
-  margin-bottom: 1rem;
-  background-color: #d9d9d9;
-  border-radius: 10px;
-}
+
+  
+
+
+
+
+
+
+
+

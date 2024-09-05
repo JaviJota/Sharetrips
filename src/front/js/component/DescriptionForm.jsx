@@ -50,7 +50,7 @@ const DescriptionForm = () => {
   }
 
   return (
-    <div className="box-score description-form">
+    <div className="box-score description-form ">
       <p>{descripcion}</p>
       
     </div>

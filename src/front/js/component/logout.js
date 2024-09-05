@@ -19,7 +19,7 @@ const LogoutLink = () => {
 
   return (
     <div
-        className="dropdown-item"
+        className="dropdown-item-logout ms-3 mb-2 "
         onClick={(e) => {
           e.preventDefault(); // Evita la recarga de la página por el link
           handleLogout(); // Llama a la función de cerrar sesión

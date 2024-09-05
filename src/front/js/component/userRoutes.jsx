@@ -10,7 +10,7 @@ const UserRoutes = ({ data, id }) => {
 
   return (
     <>
-      <div className="userRoutes ms-5 my-4 justify-content-center ">
+      <div className="userRoutes ms-3 my-4 justify-content-center ">
         <h2 className="text-center fw-bold pt-5 pb-3">Mis Rutas</h2>
         {data?.map((route, index) => (
           <SmallRouteCard
