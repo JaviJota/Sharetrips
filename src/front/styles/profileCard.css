@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box; /* Asegura que el padding y border se incluyan en el tamaño total de los elementos */
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    padding: 20px; /* Añade padding alrededor del contenedor principal */
+    
+}
+
+.user-routes-container,
+.profile-card-container {
+    flex: 1;
+    margin: 0 15px; /* Ajusta el margen para que estén más juntos */
+}
+
+.description-box-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Coloca los boxes en una columna */
+    gap: 30px; /* Espacio entre los boxes */
+    padding: 30px;
+    align-items: center; 
+
+}
+
+.description-form-container,
+.comment-box-container,
+.social-box-container,
+.rating-box-container {
+    width: 400px; 
+    height: 200px; 
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.profile-card {
+    align-items: center;
+    width: 400px;
+    height: 550px;
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    margin: 2rem auto 0; /* Margen superior y centralización */
+    margin-left: 0;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.username {
+    font-size: xx-large;
+}
+
+.settings {
+    margin-top: 10%;
+    cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,36 @@
+.custom-dropdown-input {
+    border-radius: 0.25rem; 
+    border: 1px solid #ced4da; 
+    cursor: pointer; 
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+.tag-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.6rem;
+    margin: 0.2rem;
+    font-size: 0.9rem;
+    color: white;
+    background-color: #267192; 
+    border-radius: 9999px; 
+}
+
+.tag-item .fa-x {
+    cursor: pointer; 
+    margin-left: 0.3rem;
+}
+
+.tag-item .fa-x:hover {
+    color: #f0f0f0;
+}
+
+/* Estilo para el input del datalist */
+.input-group input[list="predefined-tags-list"] {
+    width: 50%; /* Ajusta la anchura del input */
+}
+
+/* Opcional: estilos adicionales para inputs o textarea si es necesario */

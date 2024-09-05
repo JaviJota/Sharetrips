@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.founded {
+  margin-left: 2rem;
+}
+
+main {
+  min-height: 76vh;
+}
+
+@media only screen and (max-width: 600px){
+  .searchRouteCard{
+    margin-bottom: 25px !important;
+    max-height: 700px;
+  }
+
+}
+
+@media only screen and (min-width: 1800px){
+  .col-xl-6{
+    flex: 0 0 auto;
+    width: 33.3333%;
+  } 
+    
+}

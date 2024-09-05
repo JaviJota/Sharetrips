@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.send {
+    background-color: #257895; 
+    color: white; 
+    font-size: medium;
+    border: none; 
+  }
+
+  .file-upload-label {
+    cursor: pointer;
+  }
+  
+  .file-upload-area {
+    border: 2px dashed #ced4da;
+    border-radius: 50px;
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .file-upload-area:hover {
+    background-color: #f8f9fa;
+  }
+
+  .upload-file {
+    max-width: 90%;
+  }
+
+  .uploaded {
+    border-radius: 20px !important;
+    height: 450px;
+    width: 750px;
+  }
+
+  #uploadedFile {
+    width: 750px
+  }
+
+  @media only screen and (max-width: 600px){
+    .uploaded {
+        width: 327px;
+        height: 164px;
+        border-radius: 20px !important;
+    }
+
+    #uploadedFile {
+      width: 327px;
+      border-radius: 20px !important;
+      
+    }
+
+  }
