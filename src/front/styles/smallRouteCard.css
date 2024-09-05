@@ -28,8 +28,8 @@ border-radius: 12px;
 
 .userRoutes {
   width: 490px;
-  height: 1050px;
+  min-height: 600px;
   margin-bottom: 1rem;
-  background-color: #f1f1f1;
-  border-radius: 40px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
 }

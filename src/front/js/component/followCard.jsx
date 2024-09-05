@@ -3,10 +3,12 @@ import "../../styles/followCard.css";
 import FollowButton from "./buttons/followButton.jsx";
 import { USER_DATA } from "./data/userData";
 import Avvvatars from "avvvatars-react";
+import { Link } from "react-router-dom";
 
 const FollowCard = ({ username, img, id }) => {
   return (
     <>
+    <Link to={`/user/${id}`}>
       <div className="follow-card ">
       <span className="profile-image ">
             {img ? (
@@ -24,6 +26,7 @@ const FollowCard = ({ username, img, id }) => {
           <FollowButton id={id}/>
         </div>
       </div>
+    </Link>
     </>
   );
 };
