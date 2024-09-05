@@ -1,26 +1,21 @@
 /* DropdownButton.css */
 
 .dropdown-menu {
+    box-shadow: none;
     border-radius: 20px; /* Aplica el mismo radio de borde que en el modal */
     padding: 0; /* Elimina el relleno innecesario */
   }
   
-  .dropdown-menu .dropdown-item {
+  .dropdown-menu .dropdown-item-logo:hover {
+    box-shadow: none;
     font-family: "Montserrat", sans-serif;
     font-weight: 400; /* Igual que en el modal */
   }
-
-  .dropdown-item-logout{
-    color: red;
-    align-content: center;
-  }
-  
   
   .custom-button {
     font-family: "Montserrat", sans-serif;
-    font-weight: 600; /* Igual que en el modal */
-    background-color: #ffffff; /* Color de fondo del botón, ajusta según sea necesario */
-    border: 1px solid #e1e1e1; /* Ajusta el borde del botón */
+    font-weight: 600; /* Igual que en el modal */ 
     color: #257895; /* Color del texto, ajusta si es necesario */
   }
- 
+
+  
