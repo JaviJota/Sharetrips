@@ -6,73 +6,210 @@
 }
 
 .profile-container {
-    display: flex;
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
-    align-items: flex-start; /* Alinea los elementos en la parte superior */
-    padding: 20px; /* Añade padding alrededor del contenedor principal */
-    
+  display: flex;
+  justify-content: space-between; /* Distribuye el espacio entre los elementos */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  padding: 20px; /* Añade padding alrededor del contenedor principal */
+}
+
+.user-routes-container {
+  display: flex;
+  justify-content: center;
 }
 
 .user-routes-container,
 .profile-card-container {
-    flex: 1;
-    margin: 0 15px; /* Ajusta el margen para que estén más juntos */
+  flex: 1;
 }
 
 .description-box-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column; /* Coloca los boxes en una columna */
-    gap: 30px; /* Espacio entre los boxes */
-    padding: 30px;
-    align-items: center; 
-
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Coloca los boxes en una columna */
+  gap: 30px; /* Espacio entre los boxes */
+  padding: 30px;
+  align-items: center;
 }
 
 .description-form-container,
 .comment-box-container,
 .social-box-container,
 .rating-box-container {
-    width: 400px; 
-    height: 200px; 
-    background-color: #d9d9d9;
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  width: 400px;
+  height: 200px;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .profile-card {
-    align-items: center;
-    width: 400px;
-    height: 550px;
-    background-color: #d9d9d9;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    margin: 2rem auto 0; /* Margen superior y centralización */
-    margin-left: 0;
+  align-items: center;
+  width: 400px;
+  height: 550px;
+  background-color: #d9d9d9;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  margin: 2rem auto 0; /* Margen superior y centralización */
 }
 
 .profile-img {
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    margin-right: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-top: 25%;
 }
 
 .username {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 
 .settings {
-    margin-top: 10%;
-    cursor: pointer;
+  margin-top: 10%;
+  cursor: pointer;
 }
 
+.smallroute {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin-right: 1rem;
+  border-radius: 12px;
+}
 
+.smallRouteCard {
+  background-color: #fffaff;
+  width: 420px;
+  height: 100px;
+  border-radius: 26px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
 
+.userRoutes {
+  width: 490px;
+  min-height: 450px;
+  margin-bottom: 1rem;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
 
+.description-form-container,
+.social-box-container {
+  align-items: center;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-card-container,
+  .description-box-container,
+  .user-routes-container {
+    width: 100%;
+  }
+
+  .description-form-container,
+  .comment-box-container,
+  .social-box-container,
+  .rating-box-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .username {
+    font-size: large;
+  }
+
+  .smallroute {
+    width: 50px;
+    height: 50px;
+  }
+
+  .smallRouteCard {
+    width: 100%;
+    max-width: 100%; /* Asegura que las tarjetas de rutas se adapten al ancho disponible */
+  }
+
+  .userRoutes {
+    width: 100%;
+    max-width: 100%; /* Asegura que las rutas de usuario se adapten al ancho disponible */
+    min-height: auto; /* Ajusta la altura mínima para pantallas más pequeñas */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-card {
+    width: 350px;
+  }
+
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .profile-card-container {
+    order: 1; /* Asegura que el perfil esté primero */
+  }
+
+  .description-box-container {
+    order: 2; /* Asegura que la descripción esté segunda */
+  }
+
+  .user-routes-container {
+    order: 3; /* Asegura que las rutas de usuario estén terceras */
+  }
+
+  .description-form-container,
+  .comment-box-container,
+  .social-box-container,
+  .rating-box-container {
+    width: 100%;
+    max-width: 400px; /* Ajusta el ancho máximo para mantener un tamaño consistente */
+    height: 300px; /* Ajusta la altura para que todos los cuadros sean del mismo tamaño */
+    margin-bottom: 20px; /* Añade margen inferior entre los cuadros */
+    background-color: #d9d9d9;
+    border-radius: 10px; /* Bordes redondeados */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra el contenido dentro de los cuadros */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+
+  .smallroute {
+    width: 100px;
+    height: 100px;
+  }
+
+  .smallRouteCard {
+    width: 100%;
+    max-width: 100%; /* Asegura que las tarjetas de rutas se adapten al ancho disponible */
+  }
+
+  .userRoutes {
+    width: 100%;
+    max-width: 100%; /* Asegura que las rutas de usuario se adapten al ancho disponible */
+    min-height: auto; /* Ajusta la altura mínima para pantallas más pequeñas */
+  }
+}

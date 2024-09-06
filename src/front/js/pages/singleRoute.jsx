@@ -146,6 +146,13 @@ export const SingleRoute = () => {
   return (
     <div className="row w-100 justify-content-center">
       <div className="left-col col-12 col-md-6 my-5 ms-3 ms-md-4 ms-md-0 ">
+       {currentUserId === itinerary.author_id ? (
+            <Link to={`/route/edit/${itinerary.id}`}>
+              <button className="btn btn-success mb-3 ms-3 d-md-none">Editar itinerario</button>
+            </Link>
+          ) : (
+            ""
+          )}
         <ItineraryCarrusel images={itinerary.images.img} />
         <hr className="my-5  w-75 mx-auto" />
         <RouteDescription data={itinerary} />
@@ -157,7 +164,7 @@ export const SingleRoute = () => {
         <div className="text-end mb-3">
           {currentUserId === itinerary.author_id ? (
             <Link to={`/route/edit/${itinerary.id}`}>
-              <button className="btn btn-success">Editar itinerario</button>
+              <button className="btn btn-success d-none d-md-inline">Editar itinerario</button>
             </Link>
           ) : (
             ""
@@ -184,7 +191,7 @@ export const SingleRoute = () => {
           ))}
         </div>
         <hr className="mt-5 ms-3" />
-        <CommentsSection />
+        {/* <CommentsSection /> */}
       </div>
 
       {isModalOpen && (
@@ -210,7 +217,7 @@ export const SingleRoute = () => {
               </div>
               <div className="modal-body">
                 <LoadScript
-                  googleMapsApiKey="AIzaSyC20pludzsgDBOMAznGfEvwYsZihsnxu8E"
+                  googleMapsApiKey={process.env.GOOGLEAPI}
                   libraries={libraries}
                   onLoad={handleScriptLoad}
                 >

@@ -23,13 +23,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 				city: '',
 				itinerary: {},
 				images: {"img": []}
-			}
+			},
+			search: {
+				search: '',
+				duration: undefined
+			  },
 		},
 			actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+			getUser: async () => {
+				try {
+				  const resp = await fetch(process.env.BACKEND_URL + `/api/users/${getStore().user.id}`)
+				  const data = await resp.json()
+			
+				  if (!resp.ok) {
+					const errorMsg = data.msg
+					throw new Error(errorMsg);
+				  }
+				  setStore({user : data.user})
+				  return data
+				} catch (error) {
+				  console.error('Error creating user:', error.message);
+				   return { success: false, msg: error.message };
+				}
+			  },
+			  setSearch: (val) => {
+				setStore({search: val})
+			  },
 			addDay: (count, info) => {
 				const store = getStore();
 				const newItinerary = { ...store.newItineraryData.itinerary };

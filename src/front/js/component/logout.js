@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // Si estás usando react-router-dom para la navegación
 import { Context } from '../store/appContext';
+import "../../styles/dropDownButton.css";
 
 const LogoutLink = () => {
   const { store, actions } = useContext(Context)
@@ -19,7 +20,8 @@ const LogoutLink = () => {
 
   return (
     <div
-        className="dropdown-item"
+        className="dropdown-item-logout ms-3 mb-2"
+        style={{cursor:'pointer'}}
         onClick={(e) => {
           e.preventDefault(); // Evita la recarga de la página por el link
           handleLogout(); // Llama a la función de cerrar sesión

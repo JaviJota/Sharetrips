@@ -3,7 +3,7 @@ import "../../styles/route_card.css";
 import { Context } from "../store/appContext";
 import { Link, useNavigate } from "react-router-dom";
 
-export const RouteCard = ({ id, title, img, desc, score }) => {
+export const RouteCard = ({ id, title, img, desc, days }) => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ export const RouteCard = ({ id, title, img, desc, score }) => {
 
   return (
       <div
-        className="route-card card mx-auto border-0 d-flex justify-content-center"
+        className="route-card card mx-auto border-0 d-flex "
         onClick={validateToken}
       >
         <div className="d-flex flex-column flex-md-row g-0 px-4 py-3">
@@ -40,7 +40,7 @@ export const RouteCard = ({ id, title, img, desc, score }) => {
             <div className="routeCard card-body py-0" >
               <div className="d-flex card-top">
                 <h5 className="card-title me-auto">{title}</h5>
-                <p>Score: {score}</p>
+                <p>Días: {days}</p>
               </div>
               <p className="card-text">{desc}</p>
             </div>

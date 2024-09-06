@@ -194,7 +194,7 @@ export const AddDay = () => {
         ))}
       </div>
 
-      <LoadScript googleMapsApiKey="AIzaSyC20pludzsgDBOMAznGfEvwYsZihsnxu8E" libraries={libraries}>
+      <LoadScript googleMapsApiKey={process.env.GOOGLEAPI} libraries={libraries}>
        <div className="map ms-3">
        <GoogleMap
           mapContainerStyle={containerStyle}

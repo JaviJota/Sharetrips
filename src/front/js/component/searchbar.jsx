@@ -59,7 +59,7 @@ const Searchbar = () => {
                 type="text"
                 name="search"
                 value={formData.search}
-                placeholder="Destino/@username"
+                placeholder="Destino"
               />
               <input
                 className="search_input w-25 me-auto mt-0"

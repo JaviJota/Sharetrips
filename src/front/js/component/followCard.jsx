@@ -5,12 +5,13 @@ import { USER_DATA } from "./data/userData";
 import Avvvatars from "avvvatars-react";
 import { Link } from "react-router-dom";
 
+
 const FollowCard = ({ username, img, id }) => {
   return (
     <>
     <Link to={`/user/${id}`}>
       <div className="follow-card ">
-      <span className="profile-image ">
+      <span className="profile-image-sr ">
             {img ? (
               <img
                 src={img}
@@ -22,7 +23,7 @@ const FollowCard = ({ username, img, id }) => {
             )}
           </span>
         <div className=" d-grid gap-4">
-          <span className="fs-5 fw-bold ">@{username}</span>
+          <span className="follow-card-username fs-5 fw-bold">@{username}</span>
           <FollowButton id={id}/>
         </div>
       </div>

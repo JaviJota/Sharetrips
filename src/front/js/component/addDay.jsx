@@ -176,13 +176,13 @@ export const AddDay = () => {
                 >
                   <i className="bi bi-map"></i> Ver mapa del día
                 </button>
-                <button
+                {/* <button
                   className="btn btn-outline-secondary rounded-pill"
                   type="button"
                   onClick={() => openDescriptionModal(key)}
                 >
                   <i className="bi bi-pencil"></i> Añadir descripción
-                </button>
+                </button> */}
               </div>
               {store.newItineraryData.itinerary[key].description && (
                 <div className="mt-2">
@@ -194,7 +194,7 @@ export const AddDay = () => {
         ))}
       </div>
 
-      <LoadScript googleMapsApiKey="AIzaSyDGBwjZqOGj5IEsXnqztDFkBwXUrc_Bgyo" libraries={libraries}>
+      <LoadScript googleMapsApiKey={process.env.GOOGLEAPI} libraries={libraries}>
        <div className="map ms-3">
        <GoogleMap
           mapContainerStyle={containerStyle}
