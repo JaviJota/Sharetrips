@@ -17,6 +17,7 @@
 .profile-card-container {
     flex: 1;
     margin: 0 15px; /* Ajusta el margen para que estén más juntos */
+    padding-bottom: 11% ;
 }
 
 .description-box-container {
