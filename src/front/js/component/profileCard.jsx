@@ -81,7 +81,6 @@ const ProfileCard = ({ data }) => {
       );
 
       const data = await response.json();
-
       if (response.ok) {
         actions.getUser()
         // Cerrar el modal si la actualización es exitosa
