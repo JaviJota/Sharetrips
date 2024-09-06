@@ -109,6 +109,12 @@
         align-items: center;
     }
 
+    .redes-sociales{
+        color:  black;
+        align-items: center;
+        padding-left: 15px;
+    }
+
     
 /* Media Queries */
 @media (max-width: 600px) {
@@ -118,11 +124,36 @@
     }
     
     .profile-card-container,
-    .description-box-container,
-    .user-routes-container {
+    .description-box-container {
         width: 100%;
+        height: auto;
     }
+
+    .agregar-ruta{
+        padding-bottom: 25px;
+    }
+
     
+    .followers,
+    .username,
+    .following{
+        font-size: x-large ;
+    }
+
+    .user-routes-container{
+        width: 100%;
+        max-height: max-content;
+    }
+
+    .nueva-ruta{
+        padding-bottom: 10%;
+        padding-top: -10rem;
+    }
+
+    .agregar-ruta{
+        margin-bottom: 50%;
+        
+    }
     .description-form-container,
     .comment-box-container,
     .social-box-container,
@@ -131,13 +162,14 @@
         height: auto;
     }
     
+    .profile-image,
     .profile-img {
         width: 200px;
         height: 200px;
     }
     
     .username {
-        font-size: large;
+        font-size: x-large;
     }
     
     .smallroute {
@@ -155,6 +187,7 @@
         max-width: 100%; /* Asegura que las rutas de usuario se adapten al ancho disponible */
         min-height: auto; /* Ajusta la altura mínima para pantallas más pequeñas */
     }
+    
 }
 
 @media (max-width: 600px) {
@@ -172,6 +205,10 @@
     
     .user-routes-container {
         order: 3; /* Asegura que las rutas de usuario estén terceras */
+        margin-left: 10px;
+        max-width: 100%;
+        max-height: 100%;
+        align-items: center;
     }
     
     .description-form-container,
@@ -189,6 +226,11 @@
         align-items: center; /* Centra el contenido dentro de los cuadros */
         box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     }
+
+    .profile-card{
+        width: 395px;
+
+    }
     
     .smallroute {
         width: 100px;
@@ -200,9 +242,5 @@
         max-width: 100%; /* Asegura que las tarjetas de rutas se adapten al ancho disponible */
     }
     
-    .userRoutes {
-        width: 100%;
-        max-width: 100%; /* Asegura que las rutas de usuario se adapten al ancho disponible */
-        min-height: auto; /* Ajusta la altura mínima para pantallas más pequeñas */
-    }
+ 
 }

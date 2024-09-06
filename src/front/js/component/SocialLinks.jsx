@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import "../../styles/profileCard.css";
+
 
 const SocialLinks = ({ data }) => {
   const [loading, setLoading] = useState(true); 
@@ -11,17 +13,17 @@ const SocialLinks = ({ data }) => {
         <div>
           {data?.social_media.instagram && (
             <a href={data?.social_media.instagram.startsWith('http') ? data?.social_media.instagram : `https://${data?.social_media.instagram}`} target="_blank" rel="noopener noreferrer">
-              <i className="fa-brands fa-instagram fa-2x"></i>
+              <i className="redes-sociales fa-brands fa-instagram fa-2x"></i>
             </a>
           )}
           {data?.social_media.x && (
             <a href={data?.social_media.x.startsWith('http') ? data?.social_media.x : `https://${data?.social_media.x}`} target="_blank" rel="noopener noreferrer">
-              <i onClick={console.log(data?.social_media.x)} className="fa-brands fa-x-twitter fa-2x"></i>
+              <i onClick={console.log(data?.social_media.x)} className="redes-sociales fa-brands fa-x-twitter fa-2x"></i>
             </a>
           )}
           {data?.social_media.facebook && (
             <a href={data?.social_media.facebook.startsWith('http') ? data?.social_media.facebook : `https://${data?.social_media.facebook}`} target="_blank" rel="noopener noreferrer">
-              <i className="fa-brands fa-facebook fa-2x"></i>
+              <i className="redes-sociales fa-brands fa-facebook fa-2x"></i>
             </a>
           )}
          
