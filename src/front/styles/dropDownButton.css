@@ -18,4 +18,18 @@
     color: #257895; /* Color del texto, ajusta si es necesario */
   }
 
+/* Eliminar sombra en hover para elementos del dropdown */
+.custom-dropdown-menu .dropdown-item:hover {
+  box-shadow: none; /* Elimina cualquier sombra */
+  background-color: #f8f9fa; /* Mantiene el color de fondo o ajusta según prefieras */
+}
+
+/* Si deseas eliminar cualquier cambio visual en hover */
+.custom-dropdown-menu .dropdown-item:hover {
+  background-color: transparent; /* Sin color de fondo en hover */
+  box-shadow: none; /* Sin sombra */
+  color: inherit; /* Mantiene el color del texto original */
+}
+
+
   
