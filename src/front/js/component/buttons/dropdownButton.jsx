@@ -27,14 +27,12 @@ const DropdownButton = ({ buttonName, icon }) => {
         {icon} {buttonName}
       </button>
       <ul className="dropdown-menu custom-dropdown-menu">
-      <ul className="dropdown-menu custom-dropdown-menu">
         <li>
           <Link to={`/user/${userId}`} className="dropdown-item" style={{borderRadius:'40px', marginTop:'2px'}}>
             Mi perfil
           </Link>
         </li>
         <li>
-          <Link to={'/route/create'} className="dropdown-item">
           <Link to={'/route/create'} className="dropdown-item">
             Crear itinerario
           </Link>

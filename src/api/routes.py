@@ -31,7 +31,7 @@ def request_password_reset():
     data = request.json
     from app import app, mail
 
-    BASE_URL = "https://stunning-computing-machine-jjrwqvpvpwgx2rrx-3000.app.github.dev"
+    BASE_URL = "https://sample-service-name-ehpa.onrender.com"
 
     if 'email' not in data:
         return jsonify({'msg': 'Email is required'}), 400
