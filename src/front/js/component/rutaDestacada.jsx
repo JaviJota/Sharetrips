@@ -3,7 +3,6 @@ import "../../styles/rutaDestacada.css";
 import { Link } from "react-router-dom";
 
 const RutaDestacada = ({data, index}) => {
-console.log(data?.id)
   return (
     <div className="">
       <div id={`carousel${index}`} className=" carousel slide mt-3">

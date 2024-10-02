@@ -29,8 +29,8 @@ const ProfileCard = ({ data }) => {
     setFormData({
       ...formData,
       social_media: {
-        ...formData.social_media, // Mantenemos los demás valores en "social_media"
-        [name]: value, // Actualizamos solo la red social correspondiente
+        ...formData.social_media, 
+        [name]: value, 
       },
     });
   };
@@ -83,7 +83,6 @@ const ProfileCard = ({ data }) => {
       const data = await response.json();
       if (response.ok) {
         actions.getUser()
-        // Cerrar el modal si la actualización es exitosa
         window.location.reload()
         return true;
       } else {
@@ -121,17 +120,17 @@ const ProfileCard = ({ data }) => {
             )}
           </span>
           <span className="username fw-bold mx-auto">@{data?.username}</span>
-          <div className="d-grid gap-2">
+          {/* <div className="d-grid gap-2">
             <span className="followers mx-auto">
               {data?.followers.length} seguidores
             </span>
             <span className="following mx-auto">
               {data?.following.length} seguidos
             </span>
-          </div>
-          <span className="follow mx-auto">
+          </div> */}
+          {/* <span className="follow mx-auto">
             {data?.id === userId ? "" : <FollowButton />}
-          </span>
+          </span> */}
         </div>
       </div>
 
@@ -214,7 +213,7 @@ const ProfileCard = ({ data }) => {
                 <input
                   type="text"
                   className="form-control mb-2"
-                  placeholder="X"
+                  placeholder="Nombre de usuario de X"
                   name="x"
                   value={formData.x}
                   onChange={handleSocialChange}
@@ -223,7 +222,7 @@ const ProfileCard = ({ data }) => {
                 <input
                   type="text"
                   className="form-control mb-2"
-                  placeholder="Facebook"
+                  placeholder="Nombre de usuario de Facebook"
                   name="facebook"
                   value={formData.facebook}
                   onChange={handleSocialChange}
@@ -232,7 +231,7 @@ const ProfileCard = ({ data }) => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Instagram"
+                  placeholder="Nombre de usuario de Instagram"
                   name="instagram"
                   value={formData.instagram}
                   onChange={handleSocialChange}

@@ -39,15 +39,15 @@ export const Profile = () => {
     const fetchData = async () => {
       try {
         const data = await getUser();
-        setUserData(data.user); // Guardamos los datos en el estado
+        setUserData(data.user); 
       } catch (error) {
-        setError(error.message); // Guardamos el error en caso de que ocurra
+        setError(error.message); 
       } finally {
-        setLoading(false); // Indicamos que la carga ha terminado
+        setLoading(false); 
       }
     };
 
-    fetchData(); // Llamamos a la función
+    fetchData(); 
   }, [params.theid]);
 
   const userRoutesMargin = !userData?.description && !userData?.social_media ? {marginLeft: '15%'} : {marginLeft: '1px'}

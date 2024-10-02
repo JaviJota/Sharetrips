@@ -444,7 +444,7 @@ def update_user_profile(id):
     if not user:
         return jsonify({'msg': 'User not found'}), 404
     img = data.get('profile_image')
-    if len(img) == 0:
+    if not img:
         img = user.profile_image
     # Actualiza el perfil del usuario con los datos recibidos
     user.description = data.get('description', user.description)

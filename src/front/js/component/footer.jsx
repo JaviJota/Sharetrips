@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "../../styles/footer.css";
 import { ContactModal } from "../component/contactModal.jsx";
 
@@ -21,14 +21,14 @@ export const Footer = () => {
               </button>
             </div>
             <ContactModal />
-            <br />
+            {/* <br />
             <div
               type="button"
               className="btn btn-success rounded-pill px-5 text-white fs-5 phone"
             >
               {" "}
               + 34 666 555 444{" "}
-            </div>
+            </div> */}
           </div>
 
           {/* Sobre Nosotros */}
@@ -83,7 +83,7 @@ export const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <p className="mt-4 mb-0"> Copyright &copy; 2024 ShareTrips.</p>
+          <p className="mt-4 mb-0"> Copyright &copy; {new Date().getFullYear()} ShareTrips.</p>
         </div>
       </div>
     </footer>

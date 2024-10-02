@@ -112,7 +112,7 @@ export const InputRutas = () => {
         />
       </div>
 
-      {/* Contenedor de etiquetas (tags) */}
+      {/* Contenedor de etiquetas (tags)
       <div className="tags-container mb-3">
         {tags.map((tag, index) => (
           <span key={index} className="tag-item">
@@ -127,10 +127,10 @@ export const InputRutas = () => {
             </span>
           </span>
         ))}
-      </div>
+      // </div> */}
 
       {/* Dropdown para seleccionar tags integrado en input-group */}
-      <div className="input-group mb-3">
+      {/* <div className="input-group mb-3">
         <input
           type="text"
           className="form-control dropdown-toggle custom-dropdown-input"
@@ -154,7 +154,7 @@ export const InputRutas = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       {/* Textarea para la descripción */}
       <div className="mb-3">

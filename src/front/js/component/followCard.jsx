@@ -24,7 +24,7 @@ const FollowCard = ({ username, img, id }) => {
           </span>
         <div className=" d-grid gap-4">
           <span className="follow-card-username fs-5 fw-bold">@{username}</span>
-          <FollowButton id={id}/>
+          {/* <FollowButton id={id}/> */}
         </div>
       </div>
     </Link>

@@ -28,11 +28,7 @@ export const Home = () => {
         store.itineraries = itineraries
         if (!resp.ok) throw new Error('error');
         
-        setRutasDestacadas(data.itineraries.slice(0, 3))
-
-        
-        
-        console.log(rutasDestacadas)
+        setRutasDestacadas(data.itineraries.slice(0, 3))              
       } catch (error) {
         console.error('Error:', error);
       }
@@ -40,10 +36,6 @@ export const Home = () => {
     }
     getRutasDestacadas()
   }, [])
-
-  console.log(store.itineraries)
-
- 
 
   return (
     <>

@@ -26,14 +26,14 @@ app.url_map.strict_slashes = False
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'sharetrips.help@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ejmgjxffwluackto'
-app.config['MAIL_DEFAULT_SENDER'] = 'sharetrips.help@gmail.com'
+app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_USERNAME")
 
 mail = Mail(app)
 
 # JWT config
-app.config["JWT_SECRET_KEY"] = "acefc22f2040b143a99fc40039974a6c0aa98754"
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 jwt = JWTManager(app)
 
 # database condiguration

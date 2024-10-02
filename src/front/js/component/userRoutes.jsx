@@ -18,6 +18,7 @@ const UserRoutes = ({ data, id }) => {
           <SmallRouteCard
             img={route.images?.img[0]}
             title={route.title}
+            routeId={route.id}
             key={index}
           />
         ))}
