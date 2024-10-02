@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className="footer mt-auto py-3 text-center">
       <div className="container-fluid">
         <div className="row p-5 text-white">
-          {/* Contacto */}
+          
           <div className="col-12 col-md-6 col-lg-4">
             <h3>Contacto</h3>
             <br />
@@ -21,17 +21,9 @@ export const Footer = () => {
               </button>
             </div>
             <ContactModal />
-            {/* <br />
-            <div
-              type="button"
-              className="btn btn-success rounded-pill px-5 text-white fs-5 phone"
-            >
-              {" "}
-              + 34 666 555 444{" "}
-            </div> */}
+          
           </div>
 
-          {/* Sobre Nosotros */}
           <div className="col-12 col-md-6 col-lg-4 text-center about">
             <h3>Sobre Nosotros</h3>
             <ul className="list p-0">
@@ -44,7 +36,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Redes Sociales */}
+        
           <div className="col-12 col-md-6 col-lg-4 media">
             <h3>Síguenos</h3>
             <br />
@@ -82,7 +74,6 @@ export const Footer = () => {
             </a>
           </div>
 
-          {/* Copyright */}
           <p className="mt-4 mb-0"> Copyright &copy; {new Date().getFullYear()} ShareTrips.</p>
         </div>
       </div>

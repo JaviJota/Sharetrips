@@ -47,15 +47,15 @@
 
 .profile-card {
   align-items: center;
-  width: 400px;
-  height: 550px;
+  width: 490px;
+  height: 450px;
   background-color: #d9d9d9;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  margin: 2rem auto 0; /* Margen superior y centralización */
+  margin: 2rem auto 0; 
 }
 
 .profile-img {
@@ -149,13 +149,13 @@
 
   .smallRouteCard {
     width: 100%;
-    max-width: 100%; /* Asegura que las tarjetas de rutas se adapten al ancho disponible */
+    max-width: 100%; 
   }
 
   .userRoutes {
     width: 100%;
-    max-width: 100%; /* Asegura que las rutas de usuario se adapten al ancho disponible */
-    min-height: auto; /* Ajusta la altura mínima para pantallas más pequeñas */
+    max-width: 100%; 
+    min-height: auto; 
   }
 }
 
@@ -169,15 +169,15 @@
   }
 
   .profile-card-container {
-    order: 1; /* Asegura que el perfil esté primero */
+    order: 1; 
   }
 
   .description-box-container {
-    order: 2; /* Asegura que la descripción esté segunda */
+    order: 2; 
   }
 
   .user-routes-container {
-    order: 3; /* Asegura que las rutas de usuario estén terceras */
+    order: 3; 
   }
 
   .description-form-container,
@@ -185,14 +185,14 @@
   .social-box-container,
   .rating-box-container {
     width: 100%;
-    max-width: 400px; /* Ajusta el ancho máximo para mantener un tamaño consistente */
-    height: 300px; /* Ajusta la altura para que todos los cuadros sean del mismo tamaño */
-    margin-bottom: 20px; /* Añade margen inferior entre los cuadros */
+    max-width: 400px; 
+    height: 300px;
+    margin-bottom: 20px; 
     background-color: #d9d9d9;
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centra el contenido dentro de los cuadros */
+    align-items: center; 
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
       rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   }
@@ -204,12 +204,12 @@
 
   .smallRouteCard {
     width: 100%;
-    max-width: 100%; /* Asegura que las tarjetas de rutas se adapten al ancho disponible */
+    max-width: 100%; 
   }
 
   .userRoutes {
     width: 100%;
-    max-width: 100%; /* Asegura que las rutas de usuario se adapten al ancho disponible */
-    min-height: auto; /* Ajusta la altura mínima para pantallas más pequeñas */
+    max-width: 100%; 
+    min-height: auto; 
   }
 }

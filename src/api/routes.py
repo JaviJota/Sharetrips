@@ -106,6 +106,7 @@ def get_users():
 
     return jsonify({'msg': 'ok',
                     'users': users}), 200
+                    
 
 @api.route('/users/<int:id>', methods=['GET'])
 def get_user_by_id(id):

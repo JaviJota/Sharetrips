@@ -9,17 +9,10 @@ const RouteDescription = ({ data }) => {
           <h5>{data.title}</h5>
           <span>{data.duration} días.</span>
         </header>
-        <div className="tags d-flex my-4">
-          {/* <span>
-            {description.tags.map((tag) => (
-              <button className="tag mx-2 rounded-pill py-1 px-4">{tag}</button>
-            ))}
-          </span> */}
-        </div>
         <section className="description ">
           <h5>Descripción de la ruta</h5>
-        </section>
           <p className="">{data.description}</p>
+        </section>
       </div>
     </>
   );

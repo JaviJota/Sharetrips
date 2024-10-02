@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Searchbar from "./searchbar.jsx";
 import "../../styles/jumbotron.css";
-import { Link } from "react-router-dom";
+
 
 export const Jumbotron = () => {
 
@@ -19,17 +18,16 @@ export const Jumbotron = () => {
       url: 'https://images.unsplash.com/photo-1437652633673-cc02b9c67a1b?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }
   ])
-  //usamos un useEffect para cada vez que se monte el carousel, se cree una instancia a la que le decimos que el intervalo sera de 5 segundos y que no se pause
   useEffect(() => {
-    // seleccionamos el carousel
+   
     const carouselElement = document.getElementById('carouselExampleSlidesOnly');
-    //instancia del carousel con parametros de configuración
+    
     const carousel = new bootstrap.Carousel(carouselElement, {
       interval: 5000,
       pause: 'false',
     });
 
-    // limpiamos para cuando volvamos a renderizar se vuelva a generar
+   
     return () => {
       carousel.dispose();
     };

@@ -7,10 +7,10 @@ import { Home } from "./pages/home.jsx";
 import { Search } from "./pages/search.jsx";
 import { SingleRoute } from "./pages/singleRoute.jsx";
 import { CreateRoute } from "./pages/createRoute.jsx";
-import { EditRoute } from "./pages/editeRoute.jsx";
 import { Profile } from "./pages/profile.jsx";
 import ResetPassword from "./pages/resetPassword.jsx";
 import injectContext from "./store/appContext";
+import NoRoute from "./pages/noRoute.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
@@ -34,8 +34,7 @@ const Layout = () => {
                         <Route element={<Search />} path="/search" />
                         <Route element={<SingleRoute />} path="/route/:theid" />
                         <Route element={<CreateRoute />} path="/route/create" />
-                        <Route element={<EditRoute />} path="/route/edit/:theid" /> 
-                        <Route element={<Profile />} path="/user" />
+                        <Route element={<NoRoute />} path="search/noroute" />
                         <Route element={<Profile />} path="/user/:theid" />
                         <Route element={<ResetPassword />} path="/reset-password/:token" />
                         <Route element={<h1>Not found!</h1>} />

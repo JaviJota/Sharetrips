@@ -14,13 +14,13 @@
   
   .smallRouteCard {
       width: 100%;
-      max-width: 100%; /* Asegura que las tarjetas de rutas se adapten al ancho disponible */
+      max-width: 100%; 
   }
   
   .userRoutes {
       width: 100%;
-      max-width: 100%; /* Asegura que las rutas de usuario se adapten al ancho disponible */
-      min-height: auto; /* Ajusta la altura mínima para pantallas más pequeñas */
+      max-width: 100%; 
+      min-height: auto; 
   }
 }
 

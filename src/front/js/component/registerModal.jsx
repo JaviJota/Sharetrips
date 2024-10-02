@@ -14,10 +14,7 @@ export const LoginRegister = () => {
     passwordConfirm: "",
     username: "",
   });
-  // const [logFormData, setLogFormData] = useState({
-  //   email: "",
-  //   password: "",
-  // });
+
 
   const resetFormData = () => {
     setRegFormData({
@@ -26,11 +23,8 @@ export const LoginRegister = () => {
       passwordConfirm: "",
       username: "",
     });
-    // setLogFormData({
-    //   email: "",
-    //   password: "",
-    // });
-    setPasswordValidate(false);  // Resetea la validación de contraseña
+
+    setPasswordValidate(false);  
     setError('');
     setRegister(false)
   };
@@ -63,21 +57,19 @@ export const LoginRegister = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // if(register)
+   
       setRegFormData({...regFormData, [name]: value})
-    // else
-      // setLogFormData({...logFormData, [name]: value})
+  
   }
 
   useEffect(() => {
     const modalElement = document.getElementById('loginModal');
     const modal = new bootstrap.Modal(modalElement);
 
-    // Resetear el formulario cuando el modal se cierra
     modalElement.addEventListener('hide.bs.modal', resetFormData);
 
     return () => {
-      // Cleanup para evitar posibles fugas de memoria
+      
       modalElement.removeEventListener('hide.bs.modal', resetFormData);
     };
   }, []);

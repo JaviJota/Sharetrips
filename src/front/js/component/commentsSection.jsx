@@ -1,6 +1,5 @@
 import React from "react";
 import Comments from "./comments.jsx";
-import { COMMENTS_DATA } from "./data/commentsData"
 import "../../styles/comments.css";
 
 const CommentsSection = () => {

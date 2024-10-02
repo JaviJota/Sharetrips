@@ -11,8 +11,8 @@
 }
 
 .custom-link {
-  text-decoration: none; /* Remueve el subrayado */
-  color: inherit; /* Mantiene el color del texto */
+  text-decoration: none; 
+  color: inherit; 
 }
 
 .navbar-shadow {
@@ -20,10 +20,10 @@
 }
 
 .custom-button {
-  background-color: #257895; /* Color de fondo personalizado */
-  color: white; /* Color del texto */
+  background-color: #257895; 
+  color: white; 
   font-size: small;
-  border: none; /* Elimina el borde */
+  border: none; 
 }
 
 @media only screen and (max-width: 600px){

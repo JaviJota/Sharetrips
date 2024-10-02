@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.js";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import UploadFile from "../component/uploadFile.jsx";
-import Accordion from "../component/accordion.jsx";
 import { AddDay } from "../component/addDay.jsx";
-import ActivityModal from "../component/activityModal.jsx";
 import "../../styles/createRoute.css";
 
 export const CreateRoute = (props) => {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'))
   const userId = user.id

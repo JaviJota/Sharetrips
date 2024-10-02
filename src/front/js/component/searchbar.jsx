@@ -31,7 +31,7 @@ const Searchbar = () => {
 
         store.itineraries = [];
         localStorage.setItem('itineraries', JSON.stringify([]));
-        navigate('/search', { state: { itineraries: [] } });
+        navigate('search/noroute', { state: { itineraries: [] } });
       } else {
         store.itineraries = data.itineraries;
         localStorage.setItem('itineraries', JSON.stringify(data.itineraries));

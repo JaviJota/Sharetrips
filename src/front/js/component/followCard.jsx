@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/followCard.css";
-import FollowButton from "./buttons/followButton.jsx";
-import { USER_DATA } from "./data/userData";
 import Avvvatars from "avvvatars-react";
 import { Link } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { USER_DATA } from "./data/userData";
+
 import FollowButton from "../component/buttons/followButton.jsx";
 import "../../styles/profileCard.css";
 import Avvvatars from "avvvatars-react";

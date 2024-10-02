@@ -1,5 +1,4 @@
 import React from "react";
-import { USER_ROUTES } from "./data/userRoutes";
 import BlueButton from "./buttons/blueButton.jsx";
 import SmallRouteCard from "./smallRouteCard.jsx";
 import "../../styles/profileCard.css";

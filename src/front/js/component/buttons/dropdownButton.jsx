@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LogoutLink from "../logout.js";
 import { Link } from "react-router-dom";
+import DeleteAccountLink from "../deleteAccount.js";
 import "../../../styles/dropDownButton.css"
 
 import "../../../styles/dropDownButton.css"
@@ -43,6 +44,7 @@ const DropdownButton = ({ buttonName, icon }) => {
         <li>
           <LogoutLink />
         </li>
+        
       </ul>
     </div>
   );

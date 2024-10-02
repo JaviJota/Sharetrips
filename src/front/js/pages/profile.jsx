@@ -6,7 +6,6 @@ import ProfileCard from "../component/profileCard.jsx";
 import CommentBox from "../component/CommentBox.jsx";
 import DescriptionForm from "../component/DescriptionForm.jsx";
 import SocialLinks from "../component/SocialLinks.jsx";
-import Rating from "../component/Rating.js";
 import "../../styles/followCard.css";
 
 

@@ -2,33 +2,33 @@
 
 .dropdown-menu {
     box-shadow: none;
-    border-radius: 20px; /* Aplica el mismo radio de borde que en el modal */
-    padding: 0; /* Elimina el relleno innecesario */
+    border-radius: 20px; 
+    padding: 0; 
   }
   
   .dropdown-menu .dropdown-item-logo:hover {
     box-shadow: none;
     font-family: "Montserrat", sans-serif;
-    font-weight: 400; /* Igual que en el modal */
+    font-weight: 400; 
   }
   
   .custom-button {
     font-family: "Montserrat", sans-serif;
-    font-weight: 600; /* Igual que en el modal */ 
-    color: #257895; /* Color del texto, ajusta si es necesario */
+    font-weight: 600; 
+    color: #257895; 
   }
 
-/* Eliminar sombra en hover para elementos del dropdown */
+
 .custom-dropdown-menu .dropdown-item:hover {
-  box-shadow: none; /* Elimina cualquier sombra */
-  background-color: #f8f9fa; /* Mantiene el color de fondo o ajusta según prefieras */
+  box-shadow: none; 
+  background-color: #f8f9fa; 
 }
 
-/* Si deseas eliminar cualquier cambio visual en hover */
+
 .custom-dropdown-menu .dropdown-item:hover {
-  background-color: transparent; /* Sin color de fondo en hover */
-  box-shadow: none; /* Sin sombra */
-  color: inherit; /* Mantiene el color del texto original */
+  background-color: transparent; 
+  box-shadow: none; 
+  color: inherit; 
 }
 
 
