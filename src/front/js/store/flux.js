@@ -176,7 +176,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						headers: {
 							'Content-Type': 'application/json',
 							accept: 'application/json',
-							Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96bGhkdWRydG9lbmhxd2RtbXdsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgzOTk4NTIsImV4cCI6MjA0Mzk3NTg1Mn0.2fIT5Y3gzzoPu0ivYy9qCA0j1P-UzbXx1kOeRcOGYv0'
+							apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96bGhkdWRydG9lbmhxd2RtbXdsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgzOTk4NTIsImV4cCI6MjA0Mzk3NTg1Mn0.2fIT5Y3gzzoPu0ivYy9qCA0j1P-UzbXx1kOeRcOGYv0'
 						},
 						body: JSON.stringify(formData)
 					});
