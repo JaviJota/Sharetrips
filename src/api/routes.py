@@ -31,7 +31,7 @@ def request_password_reset():
     data = request.json
     from app import app, mail
 
-    BASE_URL = "https://sharetrips.vercel.app"
+    BASE_URL = "https://sample-service-name-ehpa.onrender.com/"
 
     if 'email' not in data:
         return jsonify({'msg': 'Email is required'}), 400
